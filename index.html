@@ -33,13 +33,13 @@
     z-index: 9999;
   }
 
-  /* Header Styles */
+  /* Header Styles - smaller and neater */
 header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px 20px; /* Smaller padding */
   background-color: transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: sticky;
@@ -53,16 +53,14 @@ header {
   align-items: center;
   flex: 1 1 auto;
 }
-
 .header-left img {
-  height: 60px;
-  max-width: 100px;
+  height: 50px; /* Slightly smaller logo for neatness */
+  max-width: 80px;
   height: auto;
-  margin-right: 15px;
+  margin-right: 10px;
 }
-
 .header-title {
-  font-size: 1.8em;
+  font-size: 1.5em; /* Slightly smaller font size */
   font-weight: 700;
   color: #222;
   flex-shrink: 0;
@@ -71,21 +69,21 @@ header {
 /* Navigation & Social Icons */
 nav.nav-menu {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
   backdrop-filter: blur(8px);
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
   margin-top: 10px;
 }
-
 nav.nav-menu a {
   text-decoration: none;
   color: #555;
   font-weight: 600;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 4px;
+  font-size: 0.9em;
   transition: background-color 0.3s, color 0.3s;
 }
 nav.nav-menu a:hover,
@@ -97,11 +95,9 @@ nav.nav-menu a.active {
 /* Social Icons */
 .social-icons {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 10px;
 }
-
 .social-icons a img {
   height: 30px;
   width: 30px;
@@ -117,7 +113,7 @@ nav.nav-menu a.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 20px;
+  padding: 60px 20px; /* Slightly reduced padding for compactness */
   background-image: url('images/Background-Home.jpeg');
   background-size: cover;
   background-position: center;
@@ -125,12 +121,12 @@ nav.nav-menu a.active {
   text-align: center;
 }
 #hero-banner h1 {
-  font-size: 2.8em;
-  margin-bottom: 20px;
+  font-size: 2.2em; /* Slightly smaller heading */
+  margin-bottom: 15px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 #hero-banner p {
-  font-size: 1.2em;
+  font-size: 1em; /* Slightly smaller paragraph */
   max-width: 800px;
   margin: 0 auto;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
@@ -138,69 +134,70 @@ nav.nav-menu a.active {
 
 /* Featured Products */
 section {
-  padding: 40px 20px;
+  padding: 30px 20px; /* Slightly smaller padding */
   background-color: #fff;
 }
 section h2 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 2em;
+  margin-bottom: 20px;
+  font-size: 1.8em; /* Smaller heading */
   color: #222;
 }
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  gap: 15px; /* Smaller gap for neatness */
   justify-items: center;
 }
 .product {
   background-color: #fafafa;
-  padding: 15px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   width: 100%;
-  max-width: 200px;
+  max-width: 180px;
 }
 .product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 .product img {
-  max-height: 120px;
-  margin-bottom: 10px;
+  max-height: 100px;
+  margin-bottom: 8px;
   width: auto;
 }
 .product p {
   font-weight: 600;
   color: #333;
+  font-size: 0.9em;
 }
 
-/* About Us Section */
+/* About Us */
 .about-section {
   background-color: #2f4f4f;
   color: #fff;
-  padding: 40px 20px;
-  border-radius: 10px;
+  padding: 30px 20px;
+  border-radius: 8px;
   max-width: 900px;
-  margin: 40px auto;
+  margin: 30px auto;
   text-align: center;
 }
 .about-section h2 {
-  margin-bottom: 20px;
-  font-size: 2em;
+  margin-bottom: 15px;
+  font-size: 1.8em;
 }
 .about-section p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+  font-size: 1em;
+  margin-bottom: 15px;
 }
 .about-section a {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 8px 16px;
   background-color: #4CAF50;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
   transition: background-color 0.3s;
@@ -209,22 +206,23 @@ section h2 {
   background-color: #45a049;
 }
 
-/* Footer Styles */
+/* Footer - smaller & neat */
 footer {
   background-color: #222;
   color: #ccc;
-  padding: 30px 20px;
+  padding: 20px;
   text-align: center;
-  font-size: 0.95em;
-  margin-top: 40px;
+  font-size: 0.9em;
+  margin-top: 30px;
 }
 footer p {
-  margin: 10px 0;
+  margin: 8px 0;
 }
 footer a {
   color: #fff;
   text-decoration: underline;
-  margin: 0 8px;
+  margin: 0 6px;
+  font-size: 0.9em;
   transition: color 0.3s;
 }
 footer a:hover {
@@ -237,24 +235,30 @@ footer a:hover {
     flex-direction: column;
     align-items: flex-start;
   }
-  #header {
-    flex-direction: column;
-    align-items: center;
+  .header-left {
+    margin-bottom: 10px;
   }
-  .nav-menu {
-    margin-top: 10px;
+  nav.nav-menu {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   .social-icons {
-    justify-content: center;
+    justify-content: flex-start;
   }
   #hero-banner h1 {
-    font-size: 2em;
+    font-size: 1.8em;
   }
-  /* Adjust logo size if needed */
-  .header-left img {
-    height: 50px;
+  #hero-banner p {
+    font-size: 0.9em;
+  }
+  section {
+    padding: 20px 15px;
+  }
+  .product-grid {
+    gap: 10px;
+  }
+  .product {
+    max-width: 150px;
   }
 }
 </style>
