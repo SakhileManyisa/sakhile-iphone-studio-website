@@ -342,3 +342,57 @@ footer a:hover {
 
 background-image: url('background2.jpeg');
 
+
+/* Container for the entire section */
+.products-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9; /* Light background */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Flexbox grid layout for products */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+  gap: 30px; /* Space between products */
+}
+
+/* Style individual product cards */
+.product {
+  background-color: #fff; /* White background for each card */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+  width: 200px; /* Fixed width for consistency */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover transitions */
+}
+
+/* Hover effect for products */
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+/* Style images within products */
+.product img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 15px;
+  border-radius: 10px; /* Slightly rounded images */
+  transition: transform 0.3s;
+}
+
+/* Optional: Slight zoom on hover for images */
+.product:hover img {
+  transform: scale(1.05);
+}
+
+/* Style for product description text */
+.product p {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+  font-weight: 600;
+}
