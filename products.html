@@ -1,12 +1,15 @@
+Absolutely! Here's a complete, ready-to-copy HTML code that includes all your images, styled to look professional, responsive, and uniform. Just make sure all your images are uploaded into the `images/` folder of your project with the exact filenames you provided.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Our iPhone Collection - Sakhile's</title>
-<!-- You can include your external stylesheet here or add styles directly -->
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
 <style>
-  /* Reset and base styles */
   * {
     margin: 0;
     padding: 0;
@@ -15,12 +18,11 @@
 
   body {
     font-family: 'Lato', sans-serif;
-    background: #f0f0f0; /* Light background for contrast */
+    background: #f0f0f0;
     color: #333;
     line-height: 1.6;
   }
 
-  /* Cursor styling if needed */
   #cursor {
     position: fixed;
     width: 15px;
@@ -32,8 +34,7 @@
     z-index: 9999;
   }
 
-  /* Header styles for a clean, professional look */
-header {
+  header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -44,25 +45,26 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-.header-left {
+  }
+
+  .header-left {
     display: flex;
     align-items: center;
-}
-.header-left img {
+  }
+  .header-left img {
     height: 60px;
     margin-right: 10px;
-}
-.header-left h1 {
+  }
+  .header-left h1 {
     font-size: 1.8em;
-    margin: 0;
-}
-nav.nav-menu {
+  }
+
+  nav.nav-menu {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
-}
-nav.nav-menu a {
+  }
+  nav.nav-menu a {
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 5px;
@@ -70,38 +72,36 @@ nav.nav-menu a {
     color: #fff;
     font-weight: 600;
     transition: background-color 0.3s;
-}
-nav.nav-menu a:hover, nav.nav-menu a.active {
+  }
+  nav.nav-menu a:hover,
+  nav.nav-menu a.active {
     background-color: #0056b3;
-}
+  }
 
-/* Main section styles */
-section {
+  section {
     padding: 50px;
     max-width: 1200px;
     margin: auto;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    margin-bottom: 30px;
+  }
 
-/* Title styling */
-section h2 {
+  section h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2em;
     color: #222;
-}
+  }
 
-/* Product grid for responsiveness */
-.product-grid {
+  .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
-}
+  }
 
-/* Product block styling */
-.product {
+  .product {
     background: #fafafa;
     padding: 15px;
     border-radius: 10px;
@@ -110,46 +110,42 @@ section h2 {
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s, box-shadow 0.3s;
-}
-.product:hover {
+  }
+  .product:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
+  }
 
-/* Uniform images inside products */
-.product img {
-    width: 120px; /* Fixed width */
-    height: 120px; /* Fixed height */
-    object-fit: contain; /* Keep aspect ratio */
+  .product img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
     margin-bottom: 10px;
-}
-.product p {
+  }
+
+  .product p {
     font-size: 0.95em;
     font-weight: 600;
     color: #444;
     text-align: center;
-}
+  }
 
-/* Responsive font sizes */
-@media(max-width: 768px) {
+  /* Responsive styles */
+  @media(max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
     }
     nav.nav-menu {
-        margin-top: 10px;
-        flex-direction: column;
-        width: 100%;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px;
     }
-    section {
-        padding: 30px 20px;
-    }
-}
+  }
 </style>
 </head>
 <body>
 
-<!-- Custom cursor if desired -->
 <div id="cursor"></div>
 
 <header>
@@ -159,15 +155,16 @@ section h2 {
   </div>
   <nav class="nav-menu">
     <a href="index.html" class="active">Home</a>
-    <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
-    <a href="about.html">About</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="repair.html" class="active">Repair</a>
+    <a href="about.html" class="active">About</a>
   </nav>
 </header>
 
 <section>
   <h2>Our Extensive iPhone Collection</h2>
   <div class="product-grid">
+    <!-- List all your products here -->
     <div class="product">
       <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
       <p>iPhone 7 Plus 128GB R3500</p>
@@ -200,11 +197,83 @@ section h2 {
       <img src="images/11_pro_max-removebg-preview.png" alt="iPhone 11 Pro Max" />
       <p>iPhone 11 Pro Max — 64GB R8 500</p>
     </div>
-    <!-- Add more products as needed -->
+    <div class="product">
+      <img src="images/12-removebg-preview.png" alt="iPhone 12" />
+      <p>iPhone 12 — 64GB R7500</p>
+    </div>
+    <div class="product">
+      <img src="images/12_pro-removebg-preview.png" alt="iPhone 12 Pro" />
+      <p>iPhone 12 Pro — 64GB R9500</p>
+    </div>
+    <div class="product">
+      <img src="images/12_pro_max-removebg-preview.png" alt="iPhone 12 Pro Max" />
+      <p>iPhone 12 Pro Max —128GB R11 500</p>
+    </div>
+    <div class="product">
+      <img src="images/13-removebg-preview.png" alt="iPhone 13" />
+      <p>iPhone 13 — 128GB R9500</p>
+    </div>
+    <div class="product">
+      <img src="images/13_pro-removebg-preview.png" alt="iPhone 13 Pro" />
+      <p>iPhone 13 Pro — 128GB R12 500</p>
+    </div>
+    <div class="product">
+      <img src="images/13_pro_max-removebg-preview.png" alt="iPhone 13 Pro Max" />
+      <p>iPhone 13 Pro Max — 128GB R14 000</p>
+    </div>
+    <div class="product">
+      <img src="images/14-removebg-preview.png" alt="iPhone 14" />
+      <p>iPhone 14 — 128GB R12 000</p>
+    </div>
+    <div class="product">
+      <img src="images/14_pro-removebg-preview.png" alt="iPhone 14 Pro" />
+      <p>iPhone 14 Pro — 128GB R14 500</p>
+    </div>
+    <div class="product">
+      <img src="images/14_pro_max-removebg-preview.png" alt="iPhone 14 Pro Max" />
+      <p>iPhone 14 Pro Max — 128GB R16 000</p>
+    </div>
+    <div class="product">
+      <img src="images/15-removebg-preview.png" alt="iPhone 15" />
+      <p>iPhone 15 — 128GB R14 000</p>
+    </div>
+    <div class="product">
+      <img src="images/15_pro-removebg-preview.png" alt="iPhone 15 Pro" />
+      <p>iPhone 15 Pro — 128GB R17 000</p>
+    </div>
+    <div class="product">
+      <img src="images/15_pro_max-removebg-preview.png" alt="iPhone 15 Pro Max" />
+      <p>iPhone 15 Pro Max — 256GB R20 000</p>
+    </div>
+    <div class="product">
+      <img src="images/16-removebg-preview.png" alt="iPhone 16" />
+      <p>iPhone 16 — 128GB R15 000</p>
+    </div>
+    <div class="product">
+      <img src="images/16_pro-removebg-preview.png" alt="iPhone 16 Pro" />
+      <p>iPhone 16 Pro — 256GB R19 000</p>
+    </div>
+    <div class="product">
+      <img src="images/16_pro_max-removebg-preview.png" alt="iPhone 16 Pro Max" />
+      <p>iPhone 16 Pro Max — 256GB R26 000</p>
+    </div>
   </div>
 </section>
 
-<!-- Your footer -->
+<!-- Cursor script -->
+<script>
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
+    link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
+  });
+</script>
+
+<!-- Footer -->
 <footer style="background:#222; color:#fff; padding:20px; text-align:center;">
   <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
   <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
@@ -214,20 +283,15 @@ section h2 {
   </p>
 </footer>
 
-<!-- Scripts for cursor effects -->
-<script>
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
-</script>
-<script>
-document.querySelectorAll('a').forEach(link => {
-  link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
-  link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
-});
-</script>
-
 </body>
 </html>
+```
+
+---
+
+### **Important:**
+
+- Make sure **all your images are uploaded** in the `images/` directory with the exact filenames used in the code.
+- You can copy this code directly into a `.html` file and it will display all your products in a uniform, professional, and responsive layout.
+
+If you'd like, I can also prepare a downloadable ZIP with images and this HTML for easier deployment.
