@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sakhile's iPhone Studio</title>
-<!-- Google Fonts for modern typography -->
+<title>Repair Services - Sakhile's iPhone Studio</title>
+<!-- Google Fonts for a modern look -->
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
 <style>
   /* Reset styles */
@@ -14,46 +14,42 @@
     box-sizing: border-box;
   }
 
-  /* Body with full background image, covering the viewport */
-body {
-  font-family: 'Lato', sans-serif;
-  background-image: url('images/background 2.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-}
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    background-image: url('images/background repair.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: #fff;
+    line-height: 1.6;
+  }
 
-/* Optional: custom cursor for fun effect */
-#cursor {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background-color: #007bff;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
+  /* Custom cursor for style */
+  #cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background-color: #007bff;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
 
-/* Header styles */
+  /* Header styling */
 header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: rgba(255,255,255,0.8);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.6);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
 .header-left {
   display: flex;
   align-items: center;
@@ -64,7 +60,7 @@ header {
 }
 .header-left h1 {
   font-size: 1.8em;
-  color: #222;
+  color: #fff;
 }
 
 nav.nav-menu {
@@ -86,110 +82,95 @@ nav.nav-menu a.active {
   background-color: #0056b3;
 }
 
-/* Sections styling */
+/* Main section styling */
 section {
-  padding: 50px 20px;
-  max-width: 1200px;
+  padding: 40px 20px;
+  max-width: 900px;
   margin: 30px auto;
-  background: rgba(255,255,255,0.9);
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.6);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-
-/* Section headings */
 section h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   font-size: 2em;
-  color: #222;
+  color: #fff;
 }
 
-/* Product grid styles */
-.product-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+/* Repair details list styling */
+ul {
+  list-style: inside;
+  font-size: 1.2em;
+  padding: 0 20px;
+  margin-bottom: 30px;
 }
-
-/* Product card styles */
-.product {
-  background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  width: 180px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.product img {
-  width: 100%;
-  max-width: 160px;
-  height: 160px;
-  object-fit: contain;
+ul li {
   margin-bottom: 10px;
 }
 
-.product p {
-  font-size: 0.95em;
-  font-weight: 600;
-  color: #444;
+/* Book a Repair section */
+h3 {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+p {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 30px;
 }
 
-/* Modern form styling */
+/* Form styling */
 form {
-  max-width: 600px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 0 20px 20px 20px;
 }
-form input, form textarea {
+input[type="text"],
+input[type="tel"],
+textarea {
   padding: 15px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 8px;
   font-size: 1em;
   width: 100%;
-  transition: border-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: border 0.3s, box-shadow 0.3s;
 }
-form input:focus, form textarea:focus {
-  border-color: #007bff;
+input[type="text"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
   outline: none;
+  border: 2px solid #007bff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-form button {
+button {
   padding: 15px;
   border: none;
   border-radius: 8px;
   background-color: #007bff;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-form button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
 /* Responsive adjustments */
-@media(max-width: 768px){
+@media(max-width: 768px) {
   header {
     flex-direction: column;
     align-items: flex-start;
   }
   nav.nav-menu {
     flex-direction: column;
-  }
-  section {
-    padding: 30px 15px;
-  }
-  .product {
-    width: 140px;
+    width: 100%;
   }
 }
 </style>
@@ -199,7 +180,6 @@ form button:hover {
 <!-- Optional custom cursor -->
 <div id="cursor"></div>
 
-<!-- Header -->
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Apple Logo" />
@@ -208,56 +188,45 @@ form button:hover {
   <nav class="nav-menu">
     <a href="index.html" class="active">Home</a>
     <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
+    <a href="repair.html" class="active">Repair</a>
     <a href="about.html">About</a>
   </nav>
 </header>
 
-<!-- Section: Our iPhone Collection -->
+<!-- Repair Service Info -->
 <section>
-  <h2>Our Extensive iPhone Collection</h2>
-  <div class="product-row">
-    <!-- Repeat products as needed -->
-    <div class="product">
-      <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
-      <p>iPhone 7 Plus 128GB R3500</p>
-    </div>
-    <div class="product">
-      <img src="images/8_plus-removebg-preview.png" alt="iPhone 8 Plus" />
-      <p>iPhone 8 Plus — 64GB R4000</p>
-    </div>
-    <!-- Add more products here, following pattern -->
-    <!-- ... -->
-    <div class="product">
-      <img src="images/16_pro_max-removebg-preview.png" alt="iPhone 16 Pro Max" />
-      <p>iPhone 16 Pro Max — 256GB R26 000</p>
-    </div>
-  </div>
-</section>
-
-<!-- Section: Contact Form -->
-<section>
-  <h2>Contact Us</h2>
+  <h2>Our Repair Service</h2>
+  <ul>
+    <li>Screen & Glass Replacement</li>
+    <li>Battery & Power Issues</li>
+    <li>Water Damage Restoration</li>
+    <li>Charging Port & Connector Repair</li>
+    <li>Camera & Microphone Fix</li>
+    <li>Software Troubleshooting</li>
+    <li>Micro-soldering & Logic Board Repair</li>
+  </ul>
+  <h3>Book a Repair</h3>
+  <p>Fill out the form below, and our technicians will contact you to confirm your appointment.</p>
   <form>
     <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <input type="tel" placeholder="Your Phone" />
-    <textarea rows="4" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
+    <input type="tel" placeholder="Contact Number" required />
+    <input type="text" placeholder="iPhone Model" required />
+    <textarea placeholder="Describe your issue" rows="4" required></textarea>
+    <button type="submit">Book Now</button>
   </form>
 </section>
 
-<!-- Footer -->
+<!-- Optional footer -->
 <footer style="background:#222; color:#fff; padding:20px; text-align:center;">
-  <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
-  <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
+  <p>&copy; 2025 Sakhile's iPhone Studio. All rights reserved.</p>
+  <p>Contact: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
   <p>
     <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a> | 
     <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms & Conditions</a>
   </p>
 </footer>
 
-<!-- Optional: animate cursor -->
+<!-- Optional script for custom cursor -->
 <script>
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
@@ -269,5 +238,6 @@ form button:hover {
     link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
   });
 </script>
+
 </body>
 </html>
