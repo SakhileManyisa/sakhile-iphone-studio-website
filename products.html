@@ -1,6 +1,3 @@
-Absolutely! Here's a complete, ready-to-copy HTML code that includes all your images, styled to look professional, responsive, and uniform. Just make sure all your images are uploaded into the `images/` folder of your project with the exact filenames you provided.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,13 +76,12 @@ Absolutely! Here's a complete, ready-to-copy HTML code that includes all your im
   }
 
   section {
-    padding: 50px;
+    padding: 50px 20px;
     max-width: 1200px;
     margin: auto;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
   }
 
   section h2 {
@@ -95,51 +91,58 @@ Absolutely! Here's a complete, ready-to-copy HTML code that includes all your im
     color: #222;
   }
 
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  /* Use Flexbox for a neat pattern of images */
+  .product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
   }
 
   .product {
     background: #fafafa;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 8px;
+    padding: 10px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
   }
+
   .product:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
 
+  /* Keep images uniform and clean */
   .product img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    max-width: 160px;
+    height: 160px;
     object-fit: contain;
     margin-bottom: 10px;
   }
 
-  .product p {
+  p {
     font-size: 0.95em;
     font-weight: 600;
     color: #444;
-    text-align: center;
   }
 
-  /* Responsive styles */
-  @media(max-width: 768px) {
+  @media(max-width: 768px){
     header {
       flex-direction: column;
       align-items: flex-start;
     }
     nav.nav-menu {
       flex-direction: column;
-      width: 100%;
-      margin-top: 10px;
+    }
+    section {
+      padding: 30px 15px;
+    }
+    /* Make product blocks more flexible on small screens */
+    .product {
+      width: 140px;
     }
   }
 </style>
@@ -163,8 +166,9 @@ Absolutely! Here's a complete, ready-to-copy HTML code that includes all your im
 
 <section>
   <h2>Our Extensive iPhone Collection</h2>
-  <div class="product-grid">
-    <!-- List all your products here -->
+  <!-- Container for the pattern of images -->
+  <div class="product-row">
+    <!-- Repeat this block for all models -->
     <div class="product">
       <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
       <p>iPhone 7 Plus 128GB R3500</p>
@@ -282,16 +286,5 @@ Absolutely! Here's a complete, ready-to-copy HTML code that includes all your im
     <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms & Conditions</a>
   </p>
 </footer>
-
 </body>
 </html>
-```
-
----
-
-### **Important:**
-
-- Make sure **all your images are uploaded** in the `images/` directory with the exact filenames used in the code.
-- You can copy this code directly into a `.html` file and it will display all your products in a uniform, professional, and responsive layout.
-
-If you'd like, I can also prepare a downloadable ZIP with images and this HTML for easier deployment.
