@@ -6,9 +6,8 @@
 <title>Sakhile's iPhone Studio - Home</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-<!-- Optional: Add your stylesheet here or include styles directly -->
 <style>
-  /* Reset and base styles */
+  /* Reset & Base Styles */
   * {
     margin: 0;
     padding: 0;
@@ -17,43 +16,48 @@
 
   body {
     font-family: 'Lato', sans-serif;
-    background-color: #f5f7fa; /* Light modern background */
+    background-color: #f5f7fa;
     color: #333;
     line-height: 1.6;
   }
 
-  /* Cursor style */
+  /* Custom Cursor */
   #cursor {
     position: fixed;
     width: 15px;
     height: 15px;
-    background-color: #007bff; /* Modern blue */
+    background-color: #007bff;
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 9999;
   }
 
-  /* Header styles */
+  /* Header Styles */
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: none; /* Clean header background */
+  padding: 20px;
+  background-color: transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+/* Logo & Title */
 .header-left {
   display: flex;
   align-items: center;
+  flex: 1 1 auto;
 }
 
 .header-left img {
-  height: 50px;
+  height: 60px;
+  max-width: 100px;
+  height: auto;
   margin-right: 15px;
 }
 
@@ -61,20 +65,22 @@ header {
   font-size: 1.8em;
   font-weight: 700;
   color: #222;
+  flex-shrink: 0;
 }
 
-.nav-menu {
+/* Navigation & Social Icons */
+nav.nav-menu {
   display: flex;
-  gap: 20px;
-}
-  .nav-menu {
+  gap: 15px;
+  flex-wrap: wrap;
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.2); /* optional: semi-transparent background for better blur effect */
-  padding: 10px 20px; /* optional: add padding if needed */
-  border-radius: 10px; /* optional: rounded corners for style */
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-.nav-menu a {
+nav.nav-menu a {
   text-decoration: none;
   color: #555;
   font-weight: 600;
@@ -82,17 +88,18 @@ header {
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
 }
-
-.nav-menu a:hover,
-.nav-menu a.active {
+nav.nav-menu a:hover,
+nav.nav-menu a.active {
   background-color: #007bff;
   color: #fff;
 }
 
-/* Social icons styles */
+/* Social Icons */
 .social-icons {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .social-icons a img {
@@ -100,7 +107,6 @@ header {
   width: 30px;
   transition: transform 0.3s;
 }
-
 .social-icons a img:hover {
   transform: scale(1.2);
 }
@@ -118,13 +124,11 @@ header {
   color: #fff;
   text-align: center;
 }
-
 #hero-banner h1 {
   font-size: 2.8em;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
-
 #hero-banner p {
   font-size: 1.2em;
   max-width: 800px;
@@ -137,21 +141,18 @@ section {
   padding: 40px 20px;
   background-color: #fff;
 }
-
 section h2 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 2em;
   color: #222;
 }
-
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
   justify-items: center;
 }
-
 .product {
   background-color: #fafafa;
   padding: 15px;
@@ -159,18 +160,18 @@ section h2 {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 200px;
 }
-
 .product:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
 .product img {
   max-height: 120px;
   margin-bottom: 10px;
+  width: auto;
 }
-
 .product p {
   font-weight: 600;
   color: #333;
@@ -178,7 +179,7 @@ section h2 {
 
 /* About Us Section */
 .about-section {
-  background-color: #2f4f4f; /* Dark slate gray */
+  background-color: #2f4f4f;
   color: #fff;
   padding: 40px 20px;
   border-radius: 10px;
@@ -186,17 +187,14 @@ section h2 {
   margin: 40px auto;
   text-align: center;
 }
-
 .about-section h2 {
   margin-bottom: 20px;
   font-size: 2em;
 }
-
 .about-section p {
   font-size: 1.1em;
   margin-bottom: 20px;
 }
-
 .about-section a {
   display: inline-block;
   padding: 10px 20px;
@@ -207,7 +205,6 @@ section h2 {
   font-weight: 600;
   transition: background-color 0.3s;
 }
-
 .about-section a:hover {
   background-color: #45a049;
 }
@@ -221,31 +218,43 @@ footer {
   font-size: 0.95em;
   margin-top: 40px;
 }
-
 footer p {
   margin: 10px 0;
 }
-
 footer a {
   color: #fff;
   text-decoration: underline;
   margin: 0 8px;
   transition: color 0.3s;
 }
-
 footer a:hover {
   color: #66cdaa;
 }
 
-/* Responsive adjustments */
+/* Responsive Styles */
 @media(max-width: 768px){
   header {
     flex-direction: column;
     align-items: flex-start;
   }
+  #header {
+    flex-direction: column;
+    align-items: center;
+  }
   .nav-menu {
     margin-top: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+  #hero-banner h1 {
+    font-size: 2em;
+  }
+  /* Adjust logo size if needed */
+  .header-left img {
+    height: 50px;
   }
 }
 </style>
@@ -255,26 +264,18 @@ footer a:hover {
 <!-- Custom cursor -->
 <div id="cursor"></div>
 
-<!-- Sticky Header with modern menu and social icons -->
+<!-- Header -->
 <header>
-  <nav class="nav-menu">
-    <nav class="nav-menu">
   <div class="header-left">
-    
-    <img src="images/Logo.png" alt="Apple Logo" style="height: 100px; width: auto;" />
+    <img src="images/Logo.png" alt="Apple Logo" style="height: 60px; width: auto;" />
     <div class="header-title">Sakhile's iPhone Studio</div>
   </div>
-    </nav>
-  </nav>
   <nav class="nav-menu">
-  <nav class="nav-menu">
-  <div class="header-left">
     <a href="index.html" class="active">Home</a>
     <a href="products.html">Products</a>
     <a href="repair.html">Repair</a>
     <a href="about.html">About</a>
- </nav>
-    <nav class="nav-menu">
+  </nav>
   <div class="social-icons">
     <a href="https://wa.me/0657377004" target="_blank" rel="noopener noreferrer">
       <img src="images/Whatsapp_logo-removebg-preview.png" alt="WhatsApp" title="WhatsApp" />
@@ -289,7 +290,6 @@ footer a:hover {
       <img src="images/tiktok_logo-removebg-preview.png" alt="TikTok" title="TikTok" />
     </a>
   </div>
-    </nav>
 </header>
 
 <!-- Hero Banner -->
@@ -302,22 +302,18 @@ footer a:hover {
 <section>
   <h2>Our Featured iPhones</h2>
   <div class="product-grid">
-    <!-- Product 1 -->
     <div class="product">
       <img src="images/iPhone_13-removebg-preview%20(1).png" alt="iPhone 13" />
       <p>iPhone 13 — 128GB R9500</p>
     </div>
-    <!-- Product 2 -->
     <div class="product">
       <img src="images/iPhone._14_pro_max-removebg-preview.png" alt="iPhone 14" />
       <p>iPhone 14 Pro Max — 128GB R15000</p>
     </div>
-    <!-- Product 3 -->
     <div class="product">
       <img src="images/iPhone_15_Pro_Max-removebg-preview.png" alt="iPhone 15" />
       <p>iPhone 15 — 128GB R13500</p>
     </div>
-    <!-- Product 4 -->
     <div class="product">
       <img src="images/iPhone_16-removebg-preview.png" alt="iPhone 16" />
       <p>iPhone 16 — 128GB R14500</p>
