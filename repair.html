@@ -4,28 +4,29 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Repair Services - Sakhile's iPhone Studio</title>
-<!-- Google Fonts for a modern look -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
 <style>
-  /* Reset styles */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
+  /* Background divided into 6 sections */
   body {
     font-family: 'Lato', sans-serif;
-    margin: 0;
-    background-image: url('images/background repair.jpeg');
-    background-size: cover;
-    background-position: center;
     min-height: 100vh;
+    background-image: 
+      linear-gradient(to right, #ff9999 16.66%, #99ccff 16.66%, #99ccff 33.33%, #ffff99 33.33%, #ffff99 50%, #66ff66 50%, #66ff66 66.66%, #ffcc99 66.66%, #ffcc99 83.33%, #c299ff 83.33%, #c299ff 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     color: #fff;
     line-height: 1.6;
   }
 
-  /* Custom cursor for style */
   #cursor {
     position: fixed;
     width: 15px;
@@ -37,147 +38,149 @@
     z-index: 9999;
   }
 
-  /* Header styling */
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: rgba(0,0,0,0.6);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.header-left {
-  display: flex;
-  align-items: center;
-}
-.header-left img {
-  height: 60px;
-  margin-right: 10px;
-}
-.header-left h1 {
-  font-size: 1.8em;
-  color: #fff;
-}
-
-nav.nav-menu {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-nav.nav-menu a {
-  text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-nav.nav-menu a:hover,
-nav.nav-menu a.active {
-  background-color: #0056b3;
-}
-
-/* Main section styling */
-section {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 30px auto;
-  background: rgba(0,0,0,0.6);
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-section h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 2em;
-  color: #fff;
-}
-
-/* Repair details list styling */
-ul {
-  list-style: inside;
-  font-size: 1.2em;
-  padding: 0 20px;
-  margin-bottom: 30px;
-}
-ul li {
-  margin-bottom: 10px;
-}
-
-/* Book a Repair section */
-h3 {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-p {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 30px;
-}
-
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0 20px 20px 20px;
-}
-input[type="text"],
-input[type="tel"],
-textarea {
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  transition: border 0.3s, box-shadow 0.3s;
-}
-input[type="text"]:focus,
-input[type="tel"]:focus,
-textarea:focus {
-  outline: none;
-  border: 2px solid #007bff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-button {
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive adjustments */
-@media(max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.6);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  .header-left img {
+    height: 60px;
+    margin-right: 10px;
+  }
+  .header-left h1 {
+    font-size: 1.8em;
+  }
+
   nav.nav-menu {
-    flex-direction: column;
-    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
   }
+  nav.nav-menu a {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  nav.nav-menu a:hover,
+  nav.nav-menu a.active {
+    background-color: #0056b3;
+  }
+
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    background: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+  }
+  ul {
+    list-style: inside;
+    font-size: 1.2em;
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+  ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Book a repair section styles */
+  h3 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  p {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px 20px 20px;
+  }
+  input[type="text"],
+  input[type="tel"],
+  textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: border 0.3s, box-shadow 0.3s;
+  }
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  textarea:focus {
+    outline: none;
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+  button {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 768px){
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    nav.nav-menu {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  /* Smaller footer */
+footer {
+  background: rgba(0,0,0,0.6);
+  padding: 10px;
+  font-size: 0.9em;
+  text-align: center;
 }
 </style>
 </head>
 <body>
 
-<!-- Optional custom cursor -->
+<!-- Custom cursor -->
 <div id="cursor"></div>
 
 <header>
@@ -193,9 +196,9 @@ button:hover {
   </nav>
 </header>
 
-<!-- Repair Service Info -->
+<!-- Section with divided background into 6 parts -->
 <section>
-  <h2>Our Repair Service</h2>
+  <h2 style="text-align:center;">Our Repair Service</h2>
   <ul>
     <li>Screen & Glass Replacement</li>
     <li>Battery & Power Issues</li>
@@ -205,8 +208,8 @@ button:hover {
     <li>Software Troubleshooting</li>
     <li>Micro-soldering & Logic Board Repair</li>
   </ul>
-  <h3>Book a Repair</h3>
-  <p>Fill out the form below, and our technicians will contact you to confirm your appointment.</p>
+  <h3 style="text-align:center;">Book a Repair</h3>
+  <p style="text-align:center;">Fill out the form below, and our technicians will contact you to confirm your appointment.</p>
   <form>
     <input type="text" placeholder="Your Name" required />
     <input type="tel" placeholder="Contact Number" required />
@@ -216,8 +219,8 @@ button:hover {
   </form>
 </section>
 
-<!-- Optional footer -->
-<footer style="background:#222; color:#fff; padding:20px; text-align:center;">
+<!-- Footer smaller -->
+<footer>
   <p>&copy; 2025 Sakhile's iPhone Studio. All rights reserved.</p>
   <p>Contact: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
   <p>
@@ -226,7 +229,7 @@ button:hover {
   </p>
 </footer>
 
-<!-- Optional script for custom cursor -->
+<!-- Cursor script -->
 <script>
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
