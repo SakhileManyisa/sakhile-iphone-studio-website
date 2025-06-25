@@ -4,146 +4,230 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Our iPhone Collection - Sakhile's</title>
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
-   
+<!-- You can include your external stylesheet here or add styles directly -->
+<style>
+  /* Reset and base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #f0f0f0; /* Light background for contrast */
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Cursor styling if needed */
+  #cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background-color: #007bff;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+
+  /* Header styles for a clean, professional look */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.header-left img {
+    height: 60px;
+    margin-right: 10px;
+}
+.header-left h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+nav.nav-menu {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+nav.nav-menu a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+nav.nav-menu a:hover, nav.nav-menu a.active {
+    background-color: #0056b3;
+}
+
+/* Main section styles */
+section {
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Title styling */
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #222;
+}
+
+/* Product grid for responsiveness */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Product block styling */
+.product {
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Uniform images inside products */
+.product img {
+    width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height */
+    object-fit: contain; /* Keep aspect ratio */
+    margin-bottom: 10px;
+}
+.product p {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #444;
+    text-align: center;
+}
+
+/* Responsive font sizes */
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav.nav-menu {
+        margin-top: 10px;
+        flex-direction: column;
+        width: 100%;
+    }
+    section {
+        padding: 30px 20px;
+    }
+}
+</style>
 </head>
 <body>
-<body style="background-image: url('images/background%202.jpeg'); background-size:contain; background-position: center; height: 1px; margin: 0;">
-  <!-- your content -->
-</body>
-    
+
+<!-- Custom cursor if desired -->
 <div id="cursor"></div>
 
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Apple Logo" />
-    <h1 style="margin:0;">Sakhile's iPhone Studio</h1>
+    <h1>Sakhile's iPhone Studio</h1>
   </div>
-    
-   <nav class="nav-menu">
+  <nav class="nav-menu">
     <a href="index.html" class="active">Home</a>
-    <a href="products.html" class="active">Products</a>
-       <a href="repair.html" class="active">Repair</a>
-       <a href="about.html" class="active">About</a>
+    <a href="products.html">Products</a>
+    <a href="repair.html">Repair</a>
+    <a href="about.html">About</a>
   </nav>
 </header>
 
-<section style="padding:50px; max-width:1200px; margin:auto;">
-<h2 style="text-align:center;">Our Extensive iPhone Collection</h2>
-<div class="product-grid">
-  <!-- Sample 10 models, add more as needed -->
-  <div class="product">
-    <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
-    <p>iPhone 7 Plus 128 R3500</p>
-  </div>
-  <div class="product">
-    <img src="images/8_plus-removebg-preview.png" alt="iPhone 8 Plus" />
-    <p>iPhone 8 Plus — 64GB R4000</p>
-  </div>
-  <div class="product">
-    <img src="images/xr-removebg-preview.png" alt="iPhone XR" />
-    <p>iPhone XR — 64GB R4800</p>
-  </div>
-  <div class="product">
-    <img src="images/xs-removebg-preview.png" alt="iPhone XS" />
-    <p>iPhone XS — 64GB R4900</p>
-  </div>
-  <div class="product">
-    <img src="images/xs_max-removebg-preview.png" alt="iPhone XS Max" />
-    <p>iPhone XS Max — 64GB R5500</p>
-  </div>
-  <div class="product">
-    <img src="images/11-removebg-preview.png" alt="iPhone 11" />
-    <p>iPhone 11 — 64GB R5800</p>
-  </div>
-  <div class="product">
-    <img src="images/11_pro-removebg-preview.png" alt="iPhone 11 Pro" />
-    <p>iPhone 11 Pro — 64GB R7500</p>
-  </div>
-  <div class="product">
-    <img src="images/11_pro_max-removebg-preview.png" alt="iPhone 11 Pro Max" />
-    <p>iPhone 11 Pro Max — 64GB R8 500</p>
-  </div>
+<section>
+  <h2>Our Extensive iPhone Collection</h2>
+  <div class="product-grid">
     <div class="product">
-    <img src="images/12-removebg-preview.png" alt="iPhone 12" />
-    <p>iPhone 12 — 64GB R7500</p>
-  </div>
+      <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
+      <p>iPhone 7 Plus 128GB R3500</p>
+    </div>
     <div class="product">
-    <img src="images/12_pro-removebg-preview.png" alt="iPhone 12 Pro" />
-    <p>iPhone 12 Pro — 64GB R9500</p>
-  </div>
+      <img src="images/8_plus-removebg-preview.png" alt="iPhone 8 Plus" />
+      <p>iPhone 8 Plus — 64GB R4000</p>
+    </div>
     <div class="product">
-    <img src="images/12_pro_max-removebg-preview.png" alt="iPhone 12 Pro Max" />
-    <p>iPhone 12 Pro Max —128GB R11 500</p>
-  </div>
+      <img src="images/xr-removebg-preview.png" alt="iPhone XR" />
+      <p>iPhone XR — 64GB R4800</p>
+    </div>
     <div class="product">
-    <img src="images/13-removebg-preview.png" alt="iPhone 12" />
-    <p>iPhone 13 — 128GB R9500</p>
-  </div>
+      <img src="images/xs-removebg-preview.png" alt="iPhone XS" />
+      <p>iPhone XS — 64GB R4900</p>
+    </div>
     <div class="product">
-    <img src="images/13_pro-removebg-preview.png" alt="iPhone 13 Pro" />
-    <p>iPhone 13 Pro — 128GB R12 500</p>
-  </div>
+      <img src="images/xs_max-removebg-preview.png" alt="iPhone XS Max" />
+      <p>iPhone XS Max — 64GB R5500</p>
+    </div>
     <div class="product">
-    <img src="images/13_pro_max-removebg-preview.png" alt="iPhone 13 Pro Max" />
-    <p>iPhone 13 Pro Max — 128GB R14 000</p>
-  </div>
+      <img src="images/11-removebg-preview.png" alt="iPhone 11" />
+      <p>iPhone 11 — 64GB R5800</p>
+    </div>
     <div class="product">
-    <img src="images/14-removebg-preview.png" alt="iPhone 14" />
-    <p>iPhone 14 — 128GB R12 000</p>
-  </div>
+      <img src="images/11_pro-removebg-preview.png" alt="iPhone 11 Pro" />
+      <p>iPhone 11 Pro — 64GB R7500</p>
+    </div>
     <div class="product">
-    <img src="images/14_pro-removebg-preview.png" alt="iPhone 14 Pro" />
-    <p>iPhone 14 Pro — 128GB R14 500</p>
+      <img src="images/11_pro_max-removebg-preview.png" alt="iPhone 11 Pro Max" />
+      <p>iPhone 11 Pro Max — 64GB R8 500</p>
+    </div>
+    <!-- Add more products as needed -->
   </div>
-    <div class="product">
-    <img src="images/14_pro_max-removebg-preview.png" alt="iPhone 14 Pro Max" />
-    <p>iPhone 14 Pro Max — 128GB R16 000</p>
-  </div>
-    <div class="product">
-    <img src="images/15-removebg-preview.png" alt="iPhone 15" />
-    <p>iPhone 15 — 128GB R14 000</p>
-  </div>
-    <div class="product">
-    <img src="images/15_pro-removebg-preview.png" alt="iPhone 15 Pro" />
-    <p>iPhone 15 Pro — 128GB R17 000</p>
-  </div>
-    <div class="product">
-    <img src="images/15_pro_max-removebg-preview.png" alt="iPhone 15 Pro Max" />
-    <p>iPhone 15 Pro Max — 256GB R20 000</p>
-  </div>
-    <div class="product">
-    <img src="images/16-removebg-preview.png" alt="iPhone 16" />
-    <p>iPhone 16 — 128GB R15 000</p>
-  </div>
-    <div class="product">
-    <img src="images/16_pro-removebg-preview.png" alt="iPhone 16 Pro" />
-    <p>iPhone 16 Pro — 256GB R19 000</p>
-  </div>
-    <div class="product">
-    <img src="images/16_pro_max-removebg-preview.png" alt="iPhone 16 Pro Max" />
-    <p>iPhone 16 Pro Max — 256GB R26 000</p>
-  </div>
-    <script>
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
-    link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
-  });
-</script>
-    </section>>
-     
-    <footer>
-  <p>&copy; 2025 Sakhile's iPhone Studio. All rights reserved.</p>
+</section>
+
+<!-- Your footer -->
+<footer style="background:#222; color:#fff; padding:20px; text-align:center;">
+  <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
   <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
   <p>
-    <a href="privacy.html" style="color:#fff;text-decoration:underline;">Privacy Policy</a> | 
-    <a href="terms.html" style="color:#fff;text-decoration:underline;">Terms & Conditions</a>
+    <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a> | 
+    <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms & Conditions</a>
   </p>
 </footer>
-    
+
+<!-- Scripts for cursor effects -->
+<script>
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+</script>
+<script>
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
+  link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
+});
+</script>
+
+</body>
+</html>
