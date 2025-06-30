@@ -39,7 +39,7 @@ header {
   padding: 10px 10px;
   background: none;
   backdrop-filter: blur(8px);
-  position: sticky; /* sticky menu at top */
+  position: none; /* sticky menu at top */
   top: 0;
   z-index: 999;
 }
