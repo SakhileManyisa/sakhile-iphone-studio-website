@@ -64,6 +64,7 @@ header {
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
+  position: fixed;
 }
 .nav-menu a {
   position: relative;
@@ -79,6 +80,7 @@ header {
   background: Black;
   color: #fff;
   transform: scale(1.05);
+  position: fixed;
 }
 
 /* Social media icons in the menu */
