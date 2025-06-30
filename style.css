@@ -39,7 +39,7 @@ header {
   padding: 10px 10px;
   background: none;
   backdrop-filter: blur(8px);
-  position: fixed; /* fixed menu at top */
+  position: sticky; /* sticky menu at top */
   top: 0;
   z-index: 999;
 }
@@ -64,14 +64,12 @@ header {
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
-  position: fixed;
 }
 .nav-menu a {
   position: relative;
   padding: 8px 15px;
   border-radius: 8px;
   text-decoration: none;
-  position: fixed;
   font-weight: 600;
   font-size: 1em;
   transition: background 0.3s, transform 0.2s;
