@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-color: #74ebd5; /* Match review page gradient */
+      --primary-color: #4CAF50;
       --background-image: url('images/background%203.jpeg');
       --background-color: rgba(0, 0, 0, 0.6);
       --text-color: #fff;
@@ -48,15 +48,14 @@
       z-index: 9999;
     }
 
-    /* Header styles matching review page gradient */
+    /* Header styles */
     header {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background-color: #222;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -76,10 +75,8 @@
       margin-left: 10px;
       font-size: 1.8em;
       color: var(--text-color);
-      letter-spacing: 2px;
     }
 
-    /* Navigation menu styled like review page */
     nav.nav-menu {
       display: flex;
       gap: 20px;
@@ -88,21 +85,17 @@
     nav.nav-menu a {
       color: var(--text-color);
       text-decoration: none;
-      font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 25px;
-      background: rgba(255,255,255,0.3);
-      transition: all 0.3s ease;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
     }
 
     nav.nav-menu a:hover,
     nav.nav-menu a.active {
-      background: #fff;
-      color: #333;
+      color: var(--primary-color);
       transform: scale(1.05);
     }
 
-    /* Main section styling */
+    /* Main section style */
 section.about-section {
   max-width: 900px;
   margin: 30px auto;
@@ -117,7 +110,6 @@ section.about-section h2 {
   font-size: 2em;
   margin-bottom: 20px;
   text-align: center;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
 }
 
 section.about-section p {
@@ -130,7 +122,6 @@ section.about-section h3 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 1.4em;
-  font-weight: 600;
 }
 
 section.about-section ul {
@@ -149,6 +140,7 @@ footer {
   text-align: center;
   font-size: 0.9em;
   color: #ccc;
+  margin-top: 40px;
 }
 
 footer p {
@@ -175,7 +167,7 @@ footer a {
     flex-wrap: wrap;
   }
 }
-  </style>
+    </style>
 </head>
 <body>
 
@@ -189,11 +181,10 @@ footer a {
     <h1>Sakhile's iPhone Studio</h1>
   </div>
   <nav class="nav-menu" aria-label="Main Navigation">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="products.html">Products</a>
     <a href="repair.html">Repair</a>
     <a href="about.html" class="active">About</a>
-    <a href="reviews.html">Reviews</a>
   </nav>
 </header>
 
@@ -233,6 +224,12 @@ footer a {
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+
+  // Hover effects on links
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
+    link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
   });
 </script>
 
