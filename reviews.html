@@ -18,7 +18,7 @@ body {
   color: #333;
 }
 
-/* Logo and Header styling */
+/* Header styling */
 .header {
   display: flex;
   align-items: center;
@@ -74,17 +74,149 @@ nav.menu a.active {
 /* Main content styles */
 main {
   flex: 1;
-  padding: 30px 20px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* Heading */
 h2 {
-  margin-bottom: 20px;
-  font-size: 2em;
+  margin-bottom: 30px;
+  font-size: 2.5em;
   color: #222;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
   text-align: center;
+}
+
+/* Review Form Styles */
+.review-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 50px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.review-form:hover {
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+.review-form h3 {
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #333;
+  text-align: center;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #74ebd5;
+  box-shadow: 0 0 8px rgba(116, 235, 213, 0.3);
+  outline: none;
+}
+button.submit-btn {
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  width: 100%;
+}
+button.submit-btn:hover {
+  background: linear-gradient(135deg, #6ed2d9, #9bb8e7);
+  transform: scale(1.02);
+}
+
+/* Reviews Display Styles */
+.reviews-container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+.review-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.review-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+}
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.reviewer-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.reviewer-info {
+  display: flex;
+  flex-direction: column;
+}
+.reviewer-name {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #333;
+}
+.review-date {
+  font-size: 0.9em;
+  color: #777;
+}
+.review-text {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    padding: 30px 15px;
+  }
+  h2 {
+    font-size: 2em;
+  }
 }
 </style>
 </head>
@@ -105,12 +237,152 @@ h2 {
   </nav>
 </header>
 
-<!-- Content area -->
+<!-- Main Content -->
 <main>
   <h2>Share Your Experience!</h2>
-  <!-- Review form and reviews can go here -->
-  <!-- For now, just a placeholder -->
+  
+  <!-- Review Submission Form -->
+  <form class="review-form" id="reviewForm">
+    <h3>Leave a Review</h3>
+    <div class="form-group">
+      <label for="name">Your Name *</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+    </div>
+    <div class="form-group">
+      <label for="review">Your Review *</label>
+      <textarea id="review" name="review" rows="4" placeholder="Share your experience" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating *</label>
+      <select id="rating" name="rating" required>
+        <option value="" disabled selected>Select your rating</option>
+        <option value="5">★★★★★ Excellent</option>
+        <option value="4">★★★★☆ Very Good</option>
+        <option value="3">★★★☆☆ Good</option>
+        <option value="2">★★☆☆☆ Fair</option>
+        <option value="1">★☆☆☆☆ Poor</option>
+      </select>
+    </div>
+    <button type="submit" class="submit-btn">Submit Review</button>
+  </form>
+  
+  <!-- Display Reviews -->
+  <section class="reviews-container" id="reviewsContainer">
+    <!-- Sample Review Card -->
+    <!-- Future: dynamically add reviews here -->
+  </section>
 </main>
 
+<!-- JavaScript for handling reviews -->
+<script>
+  const reviewForm = document.getElementById('reviewForm');
+  const reviewsContainer = document.getElementById('reviewsContainer');
+
+  // Sample Reviews Array
+  const reviews = [
+    {
+      name: "John D.",
+      date: "2024-03-01",
+      review: "Excellent service! My iPhone was fixed quickly and looks brand new.",
+      rating: 5,
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      name: "Sophie L.",
+      date: "2024-02-20",
+      review: "Great repair and friendly staff. Highly recommend!",
+      rating: 4,
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+    }
+  ];
+
+  // Function to create review card
+  function createReviewCard({ name, date, review, rating, avatar }) {
+    const card = document.createElement('div');
+    card.className = 'review-card';
+
+    const header = document.createElement('div');
+    header.className = 'review-header';
+
+    const avatarImg = document.createElement('img');
+    avatarImg.className = 'reviewer-avatar';
+    avatarImg.src = avatar;
+    avatarImg.alt = `${name}'s avatar`;
+
+    const reviewerInfo = document.createElement('div');
+    reviewerInfo.className = 'reviewer-info';
+
+    const reviewerName = document.createElement('div');
+    reviewerName.className = 'reviewer-name';
+    reviewerName.textContent = name;
+
+    const reviewDate = document.createElement('div');
+    reviewDate.className = 'review-date';
+    reviewDate.textContent = new Date(date).toLocaleDateString();
+
+    reviewerInfo.appendChild(reviewerName);
+    reviewerInfo.appendChild(reviewDate);
+
+    header.appendChild(avatarImg);
+    header.appendChild(reviewerInfo);
+
+    const reviewText = document.createElement('div');
+    reviewText.className = 'review-text';
+    reviewText.textContent = review;
+
+    // Append everything
+    card.appendChild(header);
+    card.appendChild(reviewText);
+
+    // Add star rating
+    const stars = document.createElement('div');
+    stars.style.marginTop = '10px';
+    stars.innerHTML = generateStars(rating);
+    card.appendChild(stars);
+
+    return card;
+  }
+
+  // Function to generate star icons based on rating
+  function generateStars(rating) {
+    let starsHTML = '';
+    for (let i=1; i<=5; i++) {
+      if(i <= rating){
+        starsHTML += '★';
+      } else {
+        starsHTML += '☆';
+      }
+    }
+    return `<span style="color:#f39c12; font-size:1.2em;">${starsHTML}</span>`;
+  }
+
+  // Render initial reviews
+  reviews.forEach(review => {
+    reviewsContainer.appendChild(createReviewCard(review));
+  });
+
+  // Handle form submission
+  reviewForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const reviewText = document.getElementById('review').value.trim();
+    const rating = parseInt(document.getElementById('rating').value);
+    const date = new Date().toISOString().split('T')[0];
+
+    if(name && reviewText && rating){
+      const newReview = {
+        name: name,
+        date: date,
+        review: reviewText,
+        rating: rating,
+        avatar: `https://randomuser.me/api/portraits/lego/${Math.floor(Math.random()*10)}.jpg` // Random avatar
+      };
+
+      reviews.push(newReview);
+      reviewsContainer.prepend(createReviewCard(newReview));
+      reviewForm.reset();
+    }
+  });
+</script>
 </body>
 </html>
