@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-color: #007bff;
+      --primary-color: #74ebd5; /* matching review page gradient */
       --body-bg: #f0f0f0;
       --text-color: #333;
-      --header-bg: rgba(255,255,255,0.9);
+      --header-gradient: linear-gradient(135deg, #74ebd5, #ACB6E5);
       --shadow-light: rgba(0,0,0,0.1);
       --shadow-dark: rgba(0,0,0,0.2);
       --font-family: 'Lato', sans-serif;
@@ -50,7 +50,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background-color: #222;
+      background: var(--header-gradient);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -69,6 +70,7 @@
     header h1 {
       font-size: 1.8em;
       color: #fff;
+      letter-spacing: 2px;
     }
 
     nav.nav-menu {
@@ -81,7 +83,7 @@
       text-decoration: none;
       padding: 8px 12px;
       border-radius: 5px;
-      background-color: var(--primary-color);
+      background-color: rgba(255,255,255,0.3);
       color: #fff;
       font-weight: 600;
       transition: background-color 0.3s, transform 0.3s;
@@ -89,79 +91,94 @@
 
     nav.nav-menu a:hover,
     nav.nav-menu a.active {
-      background-color: #0056b3;
+      background-color: #fff;
+      color: #333;
       transform: scale(1.05);
     }
 
-    /* Main section styling */
-section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: auto;
-  background: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px var(--shadow-light);
-  margin-top: 30px;
-}
+    section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 8px var(--shadow-light);
+      margin-top: 30px;
+    }
 
-section h2 {
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #222;
+    }
+
+    .product-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .product {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 10px;
+      width: 180px;
+      text-align: center;
+      box-shadow: 0 2px 5px var(--shadow-light);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px var(--shadow-dark);
+    }
+    .product img {
+      width: 100%;
+      max-width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 0.95em;
+      font-weight: 600;
+      color: #444;
+    }
+
+    /* Responsive styles */
+    @media(max-width: 768px){
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav.nav-menu {
+        flex-direction: column;
+        width: 100%;
+      }
+      section {
+        padding: 30px 15px;
+      }
+      .product {
+        width: 140px;
+      }
+    }
+
+    /* Footer styling */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 2em;
-  color: #222;
+  margin-top: 40px;
+  font-size: 0.9em;
 }
-
-.product-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 8px;
 }
-
-.product {
-  background: #fafafa;
-  border-radius: 8px;
-  padding: 10px;
-  width: 180px;
-  text-align: center;
-  box-shadow: 0 2px 5px var(--shadow-light);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.product:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--shadow-dark);
-}
-.product img {
-  width: 100%;
-  max-width: 160px;
-  height: 160px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-p {
-  font-size: 0.95em;
-  font-weight: 600;
-  color: #444;
-}
-
-/* Responsive styles */
-@media(max-width: 768px){
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav.nav-menu {
-    flex-direction: column;
-    width: 100%;
-  }
-  section {
-    padding: 30px 15px;
-  }
-  .product {
-    width: 140px;
-  }
-}
-  </style>
+</style>
 </head>
 <body>
 
@@ -184,7 +201,6 @@ p {
 <section>
   <h2>Our Extensive iPhone Collection</h2>
   <div class="product-row">
-
     <!-- Sample product cards -->
     <div class="product">
       <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
@@ -218,7 +234,6 @@ p {
       <img src="images/11_pro_max-removebg-preview.png" alt="iPhone 11 Pro Max" />
       <p>iPhone 11 Pro Max — 64GB R8 500</p>
     </div>
-    <!-- Add more products as needed -->
     <div class="product">
       <img src="images/12-removebg-preview.png" alt="iPhone 12" />
       <p>iPhone 12 — 64GB R7500</p>
@@ -231,30 +246,25 @@ p {
       <img src="images/12_pro_max-removebg-preview.png" alt="iPhone 12 Pro Max" />
       <p>iPhone 12 Pro Max —128GB R11 500</p>
     </div>
-    <!-- Continue with newer models as needed -->
+    <!-- Add more as needed -->
   </div>
 </section>
 
-<!-- Cursor script -->
 <script>
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
   });
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
-    link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
-  });
 </script>
 
 <!-- Footer -->
-<footer style="background:black; color:#fff; padding:20px; text-align:center;">
+<footer>
   <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
   <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
   <p>
-    <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a> | 
-    <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms & Conditions</a>
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms & Conditions</a>
   </p>
 </footer>
 
