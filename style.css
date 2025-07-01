@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset styles */
 body {
   margin: 0;
   padding: 0;
@@ -7,11 +7,11 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   color: #fff;
-  cursor:alias; /* hide default cursor for custom effect */
+  cursor: none; /* hide default cursor for custom effect */
   position: relative;
 }
 
-/* Custom cursor styles remain the same... (see previous CSS) */
+/* Custom animated gradient cursor */
 #cursor {
   position: fixed;
   width: 10px;
@@ -29,7 +29,7 @@ body.hover #cursor {
   transform: scale(1.2);
 }
 
-/* Modern header styles */
+/* Header styles */
 header {
   width: 99%;
   display: flex;
@@ -37,11 +37,11 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background: none;
   backdrop-filter: blur(8px);
-  position: sticky; /* sticky menu at top */
+  position: sticky;
   top: 0;
   z-index: 999;
+  background: transparent; /* optional, can add color if needed */
 }
 
 /* Logo and title */
@@ -66,7 +66,6 @@ header {
   flex-wrap: wrap;
 }
 .nav-menu a {
-  position: relative;
   padding: 8px 15px;
   border-radius: 8px;
   text-decoration: none;
@@ -75,39 +74,25 @@ header {
   transition: background 0.3s, transform 0.2s;
 }
 .nav-menu a:hover, .nav-menu a.active {
-  background: Black;
+  background: black;
   color: #fff;
   transform: scale(1.05);
-  position: fixed;
+  position: fixed; /* optional: remove if not desired */
 }
 
-/* Social media icons in the menu */
-.social-icons {
-  display: flex;
-  gap: 10px;
-  margin-left: 15px;
-}
-.social-icons img {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.social-icons img:hover {
-  transform: scale(1.2);
-}
-
-/* Main content styles (unchanged, see previous CSS)... */
+/* Main content styles */
 main {
-  padding-top: 80px; /* space for sticky header */
-  padding-bottom: 150px; /* space for footer */
+  padding-top: 80px;
+  padding-bottom: 150px;
 }
 section {
   margin-bottom: 50px;
   padding: 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.6);
-   
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 h1, h2 {
   font-size: 2em;
@@ -115,22 +100,8 @@ h1, h2 {
   text-align: center;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
-#hero-banner {
-  background-size: cover;
-  background-position: center;
-  padding: 80px 20px;
-  color: #fff;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-#hero-banner h1 {
-  font-size: 3em;
-  margin: 0 0 20px 0;
-}
-#hero-banner p {
-  font-size: 1.3em;
-}
+
+/* Product grid styling */
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -153,247 +124,45 @@ h1, h2 {
 .product img {
   width: 100%;
   height: auto;
+  max-height: 150px;
+  object-fit: contain;
 }
 .product p {
   padding: 10px;
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0;
 }
-/* Footer styles */
+
+/* Footer styling */
 footer {
   background: rgba(34,34,34,0.7);
   padding: 15px 20px;
   text-align: center;
   font-size: 1em;
+  color: #fff;
+}
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 8px;
+}
+footer a:hover {
+  color: #4CAF50;
 }
 
-/* Responsive adjustments for mobile */
-@media(max-width: 768px){
+/* Responsive adjustments */
+@media(max-width: 768px) {
   header {
     flex-direction: column;
     align-items: center;
   }
   .nav-menu {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
-}
-
-
-
-/* Style for product container */
-.product {
-  background-color: #fff; /* white background for contrast */
-  border-radius: 12px; /* rounded corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* subtle shadow */
-  width: 220px; /* fixed width */
-  padding: 15px;
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-/* Hover effect for product */
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Style for images inside product */
-.product img {
-  width: auto; /* keep aspect ratio */
-  max-height: 150px; /* limit height */
-  object-fit: contain; /* contain within max height */
-  margin-bottom: 10px;
-  border-radius: 8px; /* optional: rounded image corners */
-  transition: transform 0.3s;
-}
-
-/* Optional: enlarge image slightly on hover */
-.product:hover img {
-  transform: scale(1.05);
-}
-
-/* Styles for paragraphs inside product */
-.product p {
-  margin: 5px 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 1em;
-  text-align: center;
-  color: #333; /* dark text for readability */
-}
-
-
-/* Style the section container for padding and max width */
-section {
-  padding: 50px;
-  max-width: 1200px;
-  margin: auto;
-  background-color: rgba(0,0,0,0.05); /* optional: light background for contrast */
-  border-radius: 10px;
-}
-
-/* Style the heading inside the section */
-section h2 {
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  font-size: 2em;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* Style the section container for padding, background, and rounded corners */
-section {
-  padding: 50px;
-  max-width: 1200px;
-  margin: auto;
-  background-color: darkgra; /* light background for contrast */
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Style the section header */
-section h2 {
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  font-size: 2em;
-  margin-bottom: 30px;
-  color: #222;
-}
-
-/* Style the product grid */
-.product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-/* Style each product card */
-.product {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  width: 180px; /* same size for all products */
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-/* Hover effect on product cards */
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Style images inside products: same size and framed */
-.product img {
-  width: 150px; /* fixed width for all images */
-  height: 150px; /* fixed height for uniformity */
-  object-fit: contain; /* keep aspect ratio */
-  border: 3px solid #ddd; /* nice frame around images */
-  border-radius: 10px; /* rounded corners for images */
-  padding: 5px; /* spacing inside the border */
-  background-color: #fff; /* optional: background behind images */
-  transition: transform 0.3s, border-color 0.3s;
-}
-
-/* Optional: hover effect on images */
-.product img:hover {
-  transform: scale(1.05);
-  border-color: #4CAF50; /* change border color on hover for effect */
-}
-
-/* Style the product description texts */
-.product p {
-  margin: 8px 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.95em;
-  text-align: center;
-  color:  #333;
-}
-/* Style for the footer */
-footer {
-  background-color: darkgrey; /* dark grey */
-  color: #fff; /* white text */
-  padding: 5px 5px;
-  text-align: center;
-  font-family:'Lato';
-  font-size: 0.95em;
-  display:flow-root;
-  flex-direction: column;
-  align-items: center;
-  gap: 1px;
-}
-
-/* Style links inside footer */
-footer a {
-  color: #fff;
-  text-decoration: underline;
-  margin: 0 8px;
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: #4CAF50; /* a nice accent color on hover */
-}
-
-background-image: url('background2.jpeg');
-
-
-/* Container for the entire section */
-.products-section {
-  padding: 40px 20px;
-  background-color: #f9f9f9; /* Light background */
-  font-family: 'Arial', sans-serif;
-}
-
-/* Flexbox grid layout for products */
-.products-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center items horizontally */
-  gap: 30px; /* Space between products */
-}
-
-/* Style individual product cards */
-.product {
-  background-color: #fff; /* White background for each card */
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
-  width: 200px; /* Fixed width for consistency */
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover transitions */
-}
-
-/* Hover effect for products */
-.product:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
-}
-
-/* Style images within products */
-.product img {
-  max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 15px;
-  border-radius: 10px; /* Slightly rounded images */
-  transition: transform 0.3s;
-}
-
-/* Optional: Slight zoom on hover for images */
-.product:hover img {
-  transform: scale(1.05);
-}
-
-/* Style for product description text */
-.product p {
-  font-size: 1rem;
-  color: #333;
-  margin-top: 10px;
-  font-weight: 600;
+  .product {
+    width: 150px;
+  }
 }
