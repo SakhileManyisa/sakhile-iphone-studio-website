@@ -1,180 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Repair Services - Sakhile's iPhone Studio</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-<style>
-  /* Reset styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repair Services - Sakhile's iPhone Studio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --body-bg: #fff;
+      --text-color: #333;
+      --header-bg: rgba(0,0,0,0.6);
+      --shadow-light: rgba(0,0,0,0.1);
+      --shadow-dark: rgba(0,0,0,0.2);
+      --font-family: 'Lato', sans-serif;
+      --border-radius: 10px;
+    }
 
-  /* Body with your original background image, no blur, full coverage */
-  body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    background-image: url('images/background%20repair.jpeg');
-    background-size: 100% 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    color: #fff;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* Custom cursor for style */
-  #cursor {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background-color: #007bff;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-  }
+    body {
+      font-family: var(--font-family);
+      background-image: url('images/background%20repair.jpeg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      color: #fff;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
 
-  /* Header styles */
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: rgba(0,0,0,0.6);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.header-left {
-  display: flex;
-  align-items: center;
-}
-.header-left img {
-  height: 60px;
-  margin-right: 10px;
-}
-.header-left h1 {
-  font-size: 1.8em;
-}
+    #cursor {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
 
-/* Navigation styles */
-nav.nav-menu {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-nav.nav-menu a {
-  text-decoration: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-nav.nav-menu a:hover,
-nav.nav-menu a.active {
-  background-color: #0056b3;
-}
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-/* Main section styles */
-section {
-  padding: 50px 20px;
-  max-width: 900px;
-  margin: 30px auto;
-  background: rgba(0,0,0,0.6);
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-section h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 2em;
-}
-ul {
-  list-style: inside;
-  font-size: 1.2em;
-  padding: 0 20px;
-  margin-bottom: 30px;
-}
-ul li {
-  margin-bottom: 10px;
-}
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
 
-/* Book a repair section styling */
-h3 {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-p {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 30px;
-}
+    .header-left img {
+      height: 60px;
+      margin-right: 10px;
+    }
 
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0 20px 20px 20px;
-}
-input[type="text"],
-input[type="tel"],
-textarea {
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  transition: border 0.3s, box-shadow 0.3s;
-}
-input[type="text"]:focus,
-input[type="tel"]:focus,
-textarea:focus {
-  outline: none;
-  border: 2px solid #007bff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-button {
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 1.2em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-button:hover {
-  background-color: #0056b3;
-}
+    header h1 {
+      font-size: 1.8em;
+      color: #fff;
+    }
 
-/* Responsive styles */
-@media(max-width: 768px){
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav.nav-menu {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-</style>
+    nav.nav-menu {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav.nav-menu a {
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      background-color: var(--primary-color);
+      color: #fff;
+      font-weight: 600;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    nav.nav-menu a:hover,
+    nav.nav-menu a.active {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 30px auto;
+      background: rgba(0,0,0,0.6);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+
+    /* List of services */
+    ul {
+      list-style: inside;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Book a repair section */
+    h3 {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.8em;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+    }
+
+    /* Form styles */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 0 20px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    textarea {
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border: 2px solid var(--primary-color);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--primary-color);
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive styles */
+    @media(max-width: 768px){
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav.nav-menu {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -194,7 +211,7 @@ button:hover {
   </nav>
 </header>
 
-<!-- Repair Service Info -->
+<!-- Repair Service Information -->
 <section>
   <h2 style="text-align:center;">Our Repair Service</h2>
   <ul>
@@ -213,26 +230,15 @@ button:hover {
     <input type="tel" placeholder="Contact Number" required />
     <input type="text" placeholder="iPhone Model" required />
     <textarea placeholder="Describe your issue" rows="4" required></textarea>
-    <button type="submit">Book Now</button>
+    <button type="submit">Submit</button>
   </form>
 </section>
-
-<!-- Smaller footer without blur -->
-<footer style="background:#222; color:#fff; padding:10px; font-size:0.9em; text-align:center;">
-  <p>&copy; 2025 Sakhile's iPhone Studio. All rights reserved.</p>
-  <p>Contact: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
-  <p>
-    <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a> | 
-    <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms & Conditions</a>
-  </p>
-</footer>
 
 <!-- Cursor script -->
 <script>
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   });
   document.querySelectorAll('a').forEach(link => {
     link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
