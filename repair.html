@@ -8,10 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-color: #007bff;
-      --body-bg: #fff;
+      --primary-color: #74ebd5; /* matching review page gradient */
+      --body-bg: #f0f0f0;
       --text-color: #333;
-      --header-bg: rgba(0,0,0,0.6);
+      --header-gradient: linear-gradient(135deg, #74ebd5, #ACB6E5);
       --shadow-light: rgba(0,0,0,0.1);
       --shadow-dark: rgba(0,0,0,0.2);
       --font-family: 'Lato', sans-serif;
@@ -26,12 +26,10 @@
 
     body {
       font-family: var(--font-family);
-      background-image: url('images/background%20repair.jpeg');
-      background-size: cover;
-      background-position: center;
-      min-height: 100vh;
-      color: #fff;
+      background: var(--body-bg);
+      color: var(--text-color);
       line-height: 1.6;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -53,8 +51,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background-color: var(--header-bg);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      background: var(--header-gradient);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -73,6 +71,7 @@
     header h1 {
       font-size: 1.8em;
       color: #fff;
+      letter-spacing: 2px;
     }
 
     nav.nav-menu {
@@ -85,7 +84,7 @@
       text-decoration: none;
       padding: 8px 15px;
       border-radius: 5px;
-      background-color: var(--primary-color);
+      background-color: rgba(255,255,255,0.3);
       color: #fff;
       font-weight: 600;
       transition: background-color 0.3s, transform 0.3s;
@@ -93,7 +92,8 @@
 
     nav.nav-menu a:hover,
     nav.nav-menu a.active {
-      background-color: #0056b3;
+      background-color: #fff;
+      color: #333;
       transform: scale(1.05);
     }
 
@@ -112,7 +112,7 @@
       font-size: 2em;
     }
 
-    /* List of services */
+    /* Styling the list of services */
     ul {
       list-style: inside;
       font-size: 1.2em;
@@ -123,7 +123,7 @@
       margin-bottom: 10px;
     }
 
-    /* Book a repair section */
+    /* Book a repair section styles */
     h3 {
       margin-top: 30px;
       text-align: center;
@@ -191,11 +191,24 @@
         width: 100%;
       }
     }
-  </style>
+
+    /* Footer styling */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 8px;
+}
+</style>
 </head>
 <body>
 
-<!-- Optional custom cursor -->
 <div id="cursor"></div>
 
 <header>
@@ -205,9 +218,9 @@
   </div>
   <nav class="nav-menu">
     <a href="index.html" class="active">Home</a>
-    <a href="products.html">Products</a>
+    <a href="products.html" class="active">Products</a>
     <a href="repair.html" class="active">Repair</a>
-    <a href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="reviews.html">Reviews</a>
   </nav>
 </header>
@@ -235,15 +248,22 @@
   </form>
 </section>
 
-<!-- Cursor script -->
+<!-- Footer -->
+<footer>
+  <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
+  <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
+  <p>
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms & Conditions</a>
+  </p>
+</footer>
+
+<!-- Script for cursor animation -->
 <script>
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  });
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('mouseenter', () => { document.body.classList.add('hover'); });
-    link.addEventListener('mouseleave', () => { document.body.classList.remove('hover'); });
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
   });
 </script>
 
