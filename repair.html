@@ -193,27 +193,31 @@
     }
 
     /* Footer styling */
- footer {
-      background-color: #333;
-      color: #ccc;
-      text-align: center;
-      padding: 5px;
-    }
+footer {
+  background-color: #333;
+  color: #ccc;
+  text-align: center;
+  padding: 2px 5px; /* Reduced padding for a smaller footer */
+  font-size: 12px; /* Optional: smaller font size */
+}
 
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-    }
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
 
-    @media (max-width: 50px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav.nav-menu {
-        justify-content: flex-start;
-        margin-top: 5px;
-        padding: 5;
+/* Note: The media query has an incorrect max-width value; 50px is very small.
+   Assuming you want to target small screens, adjust accordingly. */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav.nav-menu {
+    justify-content: flex-start;
+    margin-top: 5px;
+    padding: 5px; /* Added 'px' to padding value */
+  }
 }
 </style>
 </head>
