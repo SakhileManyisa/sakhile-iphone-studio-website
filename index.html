@@ -3,34 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sakhile's iPhone Studio - Home</title>
+  <title>About - Sakhile's iPhone Studio</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
   <style>
-    /* Root variables for easy customization */
     :root {
-      --primary-color: #4CAF50;
-      --background-color: #2f2f2f; /* dark gray background */
-      --header-background: #222;
-      --footer-background: #111;
+      --primary-color: #74ebd5; /* Match review page gradient */
+      --background-image: url('images/background%203.jpeg');
+      --background-color: rgba(0, 0, 0, 0.6);
       --text-color: #fff;
       --font-family: 'Lato', sans-serif;
-      --border-radius: 8px;
+      --border-radius: 10px;
     }
 
-    /* Reset and base styles */
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: var(--font-family);
-      background-color: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
+      background-image: var(--background-image);
+      background-size: contain;
+      background-position: center;
+      min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+      margin: 0;
     }
 
     /* Custom cursor styles */
@@ -48,16 +48,17 @@
       z-index: 9999;
     }
 
-    /* Header styles */
+    /* Header styles matching review page gradient */
     header {
-      position: sticky;
-      top: 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
-      background-color: var(--header-background);
+      padding: 15px 20px;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
       z-index: 1000;
     }
 
@@ -71,160 +72,79 @@
       height: auto;
     }
 
-    .header-title {
-      font-size: 1.5em;
+    header h1 {
       margin-left: 10px;
+      font-size: 1.8em;
+      color: var(--text-color);
+      letter-spacing: 2px;
     }
 
-    /* Navigation styles */
+    /* Navigation menu styled like review page */
     nav.nav-menu {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      gap: 20px;
     }
 
     nav.nav-menu a {
-      margin: 0 12px;
-      text-decoration: none;
       color: var(--text-color);
-      font-weight: bold;
-      transition: color 0.3s, transform 0.3s;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
     }
 
     nav.nav-menu a:hover,
     nav.nav-menu a.active {
-      color: var(--primary-color);
+      background: #fff;
+      color: #333;
       transform: scale(1.05);
     }
 
-    /* Social icons styles */
-    .social-icons {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .social-icons a img {
-      width: 30px;
-      height: 30px;
-      margin: 0 6px;
-      transition: transform 0.3s;
-    }
-
-    .social-icons a img:hover {
-      transform: scale(1.2);
-    }
-
-    /* Hero section styles */
-    section.hero {
-      background-image: url('images/Background-Home.jpeg');
-      background-size: cover;
-      background-position: center;
-      padding: 80px 20px;
-      text-align: center;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    section.hero h1 {
-      font-size: 2.8em;
-      margin-bottom: 20px;
-    }
-
-    section.hero p {
-      font-size: 1.2em;
-    }
-
-    /* Featured products styles */
-section.featured {
-  background-image: url('images/iphone-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  padding: 40px 20px;
-}
-
-section.featured h2 {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2em;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px;
+    /* Main section styling */
+section.about-section {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 50px;
+  background-color: var(--background-color);
   border-radius: var(--border-radius);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  backdrop-filter: blur(4px);
+  color: var(--text-color);
 }
 
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.product img {
-  max-height: 150px;
-  width: auto;
-  display: block;
-  margin: 0 auto 10px;
-}
-
-.product p {
-  margin: 0;
-  font-size: 1em;
-  font-weight: 600;
-}
-
-/* About Us section */
-section.about {
-  background-color: #1f3f3f;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-section.about h2 {
-  color: #fff;
+section.about-section h2 {
   font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+section.about-section p {
+  font-size: 1.1em;
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
-section.about p {
-  font-size: 1.1em;
-  max-width: 800px;
-  margin: 0 auto 20px;
+section.about-section h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.4em;
+  font-weight: 600;
 }
 
-section.about a.button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
+section.about-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
-section.about a.button:hover {
-  background-color: #388e3c;
-  transform: scale(1.05);
+section.about-section ul li {
+  margin-bottom: 10px;
 }
 
 /* Footer styles */
 footer {
-  background-color: var(--footer-background);
+  background-color: #111;
   padding: 20px;
   text-align: center;
   font-size: 0.9em;
@@ -247,92 +167,54 @@ footer a {
     flex-direction: column;
     align-items: flex-start;
   }
+  header h1 {
+    margin-top: 10px;
+  }
   nav.nav-menu {
     margin-top: 10px;
-  }
-  .social-icons {
-    margin-top: 10px;
-  }
-  section.hero h1 {
-    font-size: 2em;
-  }
-  section.hero p {
-    font-size: 1em;
+    flex-wrap: wrap;
   }
 }
-    </style>
+  </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
+<!-- Custom Cursor -->
 <div id="cursor"></div>
 
-<!-- Header with logo, title, nav, and social icons -->
+<!-- Header -->
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Apple Logo" />
-    <div class="header-title">Sakhile's iPhone Studio</div>
+    <h1>Sakhile's iPhone Studio</h1>
   </div>
   <nav class="nav-menu" aria-label="Main Navigation">
-    <a href="index.html" class="active">Home</a>
+    <a href="index.html">Home</a>
     <a href="products.html">Products</a>
     <a href="repair.html">Repair</a>
-    <a href="about.html">About</a>
+    <a href="about.html" class="active">About</a>
     <a href="reviews.html">Reviews</a>
   </nav>
-  <div class="social-icons" aria-label="Social Media Links">
-    <a href="https://wa.me/your-number" target="_blank" rel="noopener" title="WhatsApp">
-      <img src="images/Whatsapp_logo-removebg-preview.png" alt="WhatsApp" />
-    </a>
-    <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" title="Facebook">
-      <img src="images/facebook_logo-removebg-preview.png" alt="Facebook" />
-    </a>
-    <a href="https://instagram.com/yourpage" target="_blank" rel="noopener" title="Instagram">
-      <img src="images/Instagram_logo-removebg-preview.png" alt="Instagram" />
-    </a>
-    <a href="https://tiktok.com/@yourpage" target="_blank" rel="noopener" title="TikTok">
-      <img src="images/tiktok_logo-removebg-preview.png" alt="TikTok" />
-    </a>
-  </div>
 </header>
 
-<!-- Hero Banner -->
-<section class="hero" id="hero-banner">
-  <h1>Welcome to Sakhile's iPhone Studio</h1>
-  <p>Your trusted partner for premium iPhone sales, repairs, and accessories.</p>
-</section>
-
-<!-- Featured Products -->
-<section class="featured" aria-label="Featured iPhones">
-  <h2 style="text-align:center;">Our Featured iPhones</h2>
-  <div class="product-grid">
-    <!-- Sample product card -->
-    <div class="product">
-      <img src="images/iPhone_13-removebg-preview%20(1).png" alt="iPhone 13" />
-      <p>iPhone 13 — 128GB R9500</p>
-    </div>
-    <div class="product">
-      <img src="images/iPhone._14_pro_max-removebg-preview.png" alt="iPhone 14 Pro Max" />
-      <p>iPhone 14 Pro Max — 128GB R15000</p>
-    </div>
-    <div class="product">
-      <img src="images/iPhone_15_Pro_Max-removebg-preview.png" alt="iPhone 15" />
-      <p>iPhone 15 — 128GB R13500</p>
-    </div>
-    <div class="product">
-      <img src="images/iPhone_16-removebg-preview.png" alt="iPhone 16" />
-      <p>iPhone 16 — 128GB R14500</p>
-    </div>
-  </div>
-</section>
-
-<!-- About Us -->
-<section class="about" aria-label="About Us">
-  <h2>About Us</h2>
+<!-- About Section -->
+<section class="about-section" aria-label="About Sakhile's iPhone Studio">
+  <h2>About Sakhile's iPhone Studio</h2>
   <p>
-    Since 2022, we've been providing top-quality Apple products and expert repairs with professional service. Trust us to keep your devices in perfect condition.
+    Founded in 2022, Sakhile's iPhone Studio has quickly become a trusted name in South Africa for premium Apple devices and expert repair services. Our team of certified technicians and customer-focused approach ensure your devices are handled with care and precision. We source only genuine Apple parts, ensuring your device functions as if it were brand new.
   </p>
-  <a href="about.html" class="button">Learn More</a>
+  <h3>Our Vision</h3>
+  <p>
+    To be the leading Apple solutions provider in South Africa, known for quality, trust, and innovation.
+  </p>
+  <h3>Our Values</h3>
+  <ul>
+    <li>Customer Satisfaction</li>
+    <li>Authenticity & Quality</li>
+    <li>Fast & Reliable Service</li>
+    <li>Affordable Pricing</li>
+    <li>Innovation & Expertise</li>
+  </ul>
 </section>
 
 <!-- Footer -->
@@ -345,22 +227,12 @@ footer a {
   </p>
 </footer>
 
-<!-- Scripts for cursor and hover effects -->
+<!-- Scripts -->
 <script>
-  // Custom cursor movement
+  // Animate cursor
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  });
-
-  // Optional: Add hover effects for links
-  document.querySelectorAll('a').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-      document.body.classList.add('hover');
-    });
-    link.addEventListener('mouseleave', () => {
-      document.body.classList.remove('hover');
-    });
   });
 </script>
 
