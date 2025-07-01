@@ -1,317 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sakhile's iPhone Studio - Home</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-<style>
-  /* Reset & Base Styles */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sakhile's iPhone Studio - Home</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+  <style>
+    /* Root variables for easy customization */
+    :root {
+      --primary-color: #4CAF50;
+      --background-color: #2f2f2f; /* dark gray background */
+      --header-background: #222;
+      --footer-background: #111;
+      --text-color: #fff;
+      --font-family: 'Lato', sans-serif;
+      --border-radius: 8px;
+    }
 
-  body {
-    font-family: 'Lato', sans-serif;
-    /* Gradient background for a lively look */
-    background: linear-gradient(135deg, #f5f7fa, #e0eafc);
-    color: #333;
-    line-height: 1.6;
-    scroll-behavior: smooth;
-  }
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-  /* Custom Cursor */
-  #cursor {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background-color: #007bff;
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-  }
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-  /* Header Styles - smaller and neat with background color */
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
+    /* Custom cursor styles */
+    #cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s, transform 0.1s;
+      z-index: 9999;
+    }
 
-/* Logo & Title */
-.header-left {
-  display: flex;
-  align-items: center;
-  flex: 1 1 auto;
-}
-.header-left img {
-  height: 90px; /* smaller logo for neatness */
-  max-width: 80px;
-  height: auto;
-  margin-right: 10px;
-}
-.header-title {
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #222;
-}
+    /* Header styles */
+    header {
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: var(--header-background);
+      z-index: 1000;
+    }
 
-/* Navigation & Social Icons */
-nav.nav-menu {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 5px 10px;
-  border-radius: 8px;
-}
-nav.nav-menu a {
-  text-decoration: none;
-  color: #555;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  transition: background-color 0.3s, color 0.3s;
-}
-nav.nav-menu a:hover,
-nav.nav-menu a.active {
-  background-color: #007bff;
-  color: #fff;
-}
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
 
-/* Social Icons Styling */
-.social-icons {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-.social-icons a img {
-  height: 30px;
-  width: 30px;
-  transition: transform 0.3s;
-}
-.social-icons a img:hover {
-  transform: scale(1.2);
-}
+    .header-left img {
+      width: 50px;
+      height: auto;
+    }
 
-/* Hero Banner with gradient overlay for vibrance */
-#hero-banner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/Background-Home.jpeg');
+    .header-title {
+      font-size: 1.5em;
+      margin-left: 10px;
+    }
+
+    /* Navigation styles */
+    nav.nav-menu {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav.nav-menu a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    nav.nav-menu a:hover,
+    nav.nav-menu a.active {
+      color: var(--primary-color);
+      transform: scale(1.05);
+    }
+
+    /* Social icons styles */
+    .social-icons {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .social-icons a img {
+      width: 30px;
+      height: 30px;
+      margin: 0 6px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Hero section styles */
+    section.hero {
+      background-image: url('images/Background-Home.jpeg');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 20px;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    section.hero h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+
+    section.hero p {
+      font-size: 1.2em;
+    }
+
+    /* Featured products styles */
+section.featured {
+  background-image: url('images/iphone-bg.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff;
-  text-align: center;
-}
-#hero-banner h1 {
-  font-size: clamp(1.8em, 4vw, 2.5em);
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-#hero-banner p {
-  font-size: clamp(1em, 2.5vw, 1.2em);
-  max-width: 800px;
-  line-height: 1.4;
+  padding: 40px 20px;
 }
 
-/* Featured Products Section with pastel background */
-section {
-  padding: 30px 20px;
-  /* Light pastel background for contrast */
-  background-color: #fff8f0;
-  margin: 20px 0;
-  border-radius: 10px;
-}
-section:nth-of-type(2) {
-  background-color: #e0f7fa; /* Different pastel for variety */
-}
-section h2 {
+section.featured h2 {
+  color: #fff;
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.8em;
-  color: #222;
+  margin-bottom: 30px;
+  font-size: 2em;
 }
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 .product {
-  background-color: #fafafa;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: var(--border-radius);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  width: 100%;
-  max-width: 180px;
-}
-.product:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-}
-.product img {
-  max-height: 100px;
-  margin-bottom: 8px;
-  width: auto;
-}
-.product p {
-  font-weight: 600;
-  color: #333;
-  font-size: 0.9em;
+  cursor: pointer;
 }
 
-/* About Us with soothing background */
-.about-section {
-  background-color: #ffe0b2; /* Warm pastel color */
-  color: #222;
-  padding: 30px 20px;
-  border-radius: 10px;
-  max-width: 900px;
-  margin: 20px auto;
+.product:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.product img {
+  max-height: 150px;
+  width: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.product p {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+/* About Us section */
+section.about {
+  background-color: #1f3f3f;
+  padding: 40px 20px;
   text-align: center;
 }
-.about-section h2 {
-  margin-bottom: 15px;
-  font-size: 1.8em;
-}
-.about-section p {
-  font-size: 1em;
-  margin-bottom: 15px;
-}
-.about-section a {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #4CAF50;
+
+section.about h2 {
   color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-.about-section a:hover {
-  background-color: #45a049;
+  font-size: 2em;
+  margin-bottom: 20px;
 }
 
-/* Footer with dark background and contrasting text */
+section.about p {
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+section.about a.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+section.about a.button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Footer styles */
 footer {
-  background-color: #222;
-  color: #ccc;
+  background-color: var(--footer-background);
   padding: 20px;
   text-align: center;
   font-size: 0.9em;
-  margin-top: 30px;
-  border-top: 4px solid #444; /* subtle separator */
+  color: #ccc;
 }
+
 footer p {
   margin: 8px 0;
 }
+
 footer a {
   color: #fff;
   text-decoration: underline;
-  margin: 0 6px;
-  font-size: 0.9em;
-  transition: color 0.3s;
-}
-footer a:hover {
-  color: #66cdaa;
+  margin: 0 8px;
 }
 
-/* Responsive adjustments for smaller screens */
-@media(max-width: 768px){
+/* Responsive adjustments */
+@media(max-width: 768px) {
   header {
     flex-direction: column;
     align-items: flex-start;
   }
-  .header-left {
-    margin-bottom: 10px;
-  }
   nav.nav-menu {
-    flex-direction: column;
-    align-items: flex-start;
+    margin-top: 10px;
   }
   .social-icons {
-    justify-content: flex-start;
+    margin-top: 10px;
   }
-  #hero-banner h1 {
-    font-size: 1.8em;
+  section.hero h1 {
+    font-size: 2em;
   }
-  #hero-banner p {
-    font-size: 0.9em;
-  }
-  section {
-    padding: 20px 15px;
+  section.hero p {
+    font-size: 1em;
   }
 }
-</style>
+    </style>
 </head>
 <body>
 
 <!-- Custom cursor -->
 <div id="cursor"></div>
 
-<!-- Header -->
+<!-- Header with logo, title, nav, and social icons -->
 <header>
   <div class="header-left">
-    <img src="images/Logo.png" alt="Apple Logo" style="height: 60px; width: auto;" />
+    <img src="images/Logo.png" alt="Apple Logo" />
     <div class="header-title">Sakhile's iPhone Studio</div>
   </div>
-  <nav class="nav-menu">
+  <nav class="nav-menu" aria-label="Main Navigation">
     <a href="index.html" class="active">Home</a>
     <a href="products.html">Products</a>
     <a href="repair.html">Repair</a>
     <a href="about.html">About</a>
   </nav>
-  <div class="social-icons">
-    <a href="https://wa.me/0657377004" target="_blank" rel="noopener noreferrer">
-      <img src="images/Whatsapp_logo-removebg-preview.png" alt="WhatsApp" title="WhatsApp" />
+  <div class="social-icons" aria-label="Social Media Links">
+    <a href="https://wa.me/your-number" target="_blank" rel="noopener" title="WhatsApp">
+      <img src="images/Whatsapp_logo-removebg-preview.png" alt="WhatsApp" />
     </a>
-    <a href="https://facebook.com/sakhile.manyisa.18" target="_blank" rel="noopener noreferrer">
-      <img src="images/facebook_logo-removebg-preview.png" alt="Facebook" title="Facebook" />
+    <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" title="Facebook">
+      <img src="images/facebook_logo-removebg-preview.png" alt="Facebook" />
     </a>
-    <a href="https://www.instagram.com/sakhilemanyisa?igsh=am02N2g3YTdsbmEw" target="_blank" rel="noopener noreferrer">
-      <img src="images/Instagram_logo-removebg-preview.png" alt="Instagram" title="Instagram" />
+    <a href="https://instagram.com/yourpage" target="_blank" rel="noopener" title="Instagram">
+      <img src="images/Instagram_logo-removebg-preview.png" alt="Instagram" />
     </a>
-    <a href="https://www.tiktok.com/@sakhilemanyisa?t=ZS-8xOwy9b4E3G&_r=1" target="_blank" rel="noopener noreferrer">
-      <img src="images/tiktok_logo-removebg-preview.png" alt="TikTok" title="TikTok" />
+    <a href="https://tiktok.com/@yourpage" target="_blank" rel="noopener" title="TikTok">
+      <img src="images/tiktok_logo-removebg-preview.png" alt="TikTok" />
     </a>
   </div>
 </header>
 
 <!-- Hero Banner -->
-<section id="hero-banner">
-  <h1 style="color: #fff;">Welcome to Sakhile's iPhone Studio</h1>
+<section class="hero" id="hero-banner">
+  <h1>Welcome to Sakhile's iPhone Studio</h1>
   <p>Your trusted partner for premium iPhone sales, repairs, and accessories.</p>
 </section>
 
 <!-- Featured Products -->
-<section>
-  <h2>Our Featured iPhones</h2>
+<section class="featured" aria-label="Featured iPhones">
+  <h2 style="text-align:center;">Our Featured iPhones</h2>
   <div class="product-grid">
+    <!-- Sample product card -->
     <div class="product">
       <img src="images/iPhone_13-removebg-preview%20(1).png" alt="iPhone 13" />
       <p>iPhone 13 — 128GB R9500</p>
     </div>
     <div class="product">
-      <img src="images/iPhone._14_pro_max-removebg-preview.png" alt="iPhone 14" />
+      <img src="images/iPhone._14_pro_max-removebg-preview.png" alt="iPhone 14 Pro Max" />
       <p>iPhone 14 Pro Max — 128GB R15000</p>
     </div>
     <div class="product">
@@ -325,34 +325,19 @@ footer a:hover {
   </div>
 </section>
 
-<!-- Add this style in your <style> block or CSS file -->
-<style>
-  /* Make product images uniform in size and aligned */
-  .product img {
-    width: 120px;        /* fixed width for all images */
-    height: 120px;       /* fixed height for all images */
-    object-fit: contain; /* preserve aspect ratio within box */
-    display: block;      /* remove inline spacing */
-    margin: 0 auto 8px;  /* center images and space below */
-  }
-</style>
-
 <!-- About Us -->
-<section class="about-section">
+<section class="about" aria-label="About Us">
   <h2>About Us</h2>
   <p>
     Since 2022, we've been providing top-quality Apple products and expert repairs with professional service. Trust us to keep your devices in perfect condition.
   </p>
-  <a href="about.html">Learn More</a>
+  <a href="about.html" class="button">Learn More</a>
 </section>
 
 <!-- Footer -->
 <footer>
   <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
-  <p>
-    <a href="tel:0657377004">Call or WhatsApp us: 0657377004</a> | 
-    <a href="mailto:sakhilemanyisa10@gmail.com"> Email: sakhilemanyisa10@gmail.com</a>
-  </p>
+  <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
   <p>
     <a href="privacy.html">Privacy Policy</a> | 
     <a href="terms.html">Terms & Conditions</a>
@@ -361,13 +346,13 @@ footer a:hover {
 
 <!-- Scripts for cursor and hover effects -->
 <script>
+  // Custom cursor movement
   const cursor = document.getElementById('cursor');
   document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   });
-</script>
-<script>
+
+  // Optional: Add hover effects for links
   document.querySelectorAll('a').forEach(link => {
     link.addEventListener('mouseenter', () => {
       document.body.classList.add('hover');
@@ -377,5 +362,6 @@ footer a:hover {
     });
   });
 </script>
+
 </body>
 </html>
