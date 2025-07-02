@@ -1,228 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Reviews - Sakhile's iPhone Studio</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-<style>
-  /* Reset and base styles */
-body {
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  background: #f0f0f0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: #333;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews - Sakhile's iPhone Studio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #333;
+    }
 
-/* Header styling */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-.logo-container img {
-  width: 60px;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  margin-right: 15px;
-}
-.logo-container h1 {
-  font-size: 1.8em;
-  color: #fff;
-  letter-spacing: 2px;
-  margin: 0;
-}
+    /* Header styling */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
 
-/* Navigation menu styles */
-nav.menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-nav.menu a {
-  padding: 10px 20px;
-  border-radius: 25px;
-  background: rgba(255,255,255,0.3);
-  text-decoration: none;
-  font-weight: 600;
-  color: #fff;
-  transition: all 0.3s ease;
-}
-nav.menu a:hover,
-nav.menu a.active {
-  background: #fff;
-  color: #333;
-  transform: scale(1.05);
-}
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
 
-/* Main content styles */
-main {
-  flex: 1;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .logo-container img {
+      width: 60px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-right: 15px;
+    }
 
-/* Heading */
-h2 {
-  margin-bottom: 30px;
-  font-size: 2.5em;
-  color: #222;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-  text-align: center;
-}
+    .logo-container h1 {
+      font-size: 1.8em;
+      color: #fff;
+      letter-spacing: 2px;
+      margin: 0;
+    }
 
-/* Review Form Styles */
-.review-form {
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 600px;
-  margin-bottom: 50px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.review-form:hover {
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-  transform: translateY(-2px);
-}
-.review-form h3 {
-  margin-bottom: 20px;
-  font-size: 1.8em;
-  color: #333;
-  text-align: center;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-.form-group label {
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #555;
-}
-.form-group input,
-.form-group textarea,
-.form-group select {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: 'Lato', sans-serif;
-  font-size: 1em;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: #74ebd5;
-  box-shadow: 0 0 8px rgba(116, 235, 213, 0.3);
-  outline: none;
-}
-button.submit-btn {
-  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-  color: #fff;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  width: 100%;
-}
-button.submit-btn:hover {
-  background: linear-gradient(135deg, #6ed2d9, #9bb8e7);
-  transform: scale(1.02);
-}
+    /* Navigation */
+    nav.menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-/* Reviews Display Styles */
-.reviews-container {
-  width: 100%;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
-}
-.review-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.review-card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transform: translateY(-4px);
-}
-.review-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.reviewer-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.reviewer-info {
-  display: flex;
-  flex-direction: column;
-}
-.reviewer-name {
-  font-weight: 700;
-  font-size: 1.1em;
-  color: #333;
-}
-.review-date {
-  font-size: 0.9em;
-  color: #777;
-}
-.review-text {
-  font-size: 1em;
-  color: #555;
-  line-height: 1.5;
-}
+    nav.menu a {
+      padding: 10px 20px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.3);
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  main {
-    padding: 30px 15px;
-  }
-  h2 {
-    font-size: 2em;
-  }
-}
-</style>
+    nav.menu a:hover,
+    nav.menu a.active {
+      background: #fff;
+      color: #333;
+      transform: scale(1.05);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      color: #222;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    /* Review Form */
+    .review-form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 50px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-sizing: border-box;
+    }
+
+    .review-form:hover {
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      transform: translateY(-2px);
+    }
+
+    .review-form h3 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #333;
+      text-align: center;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #74ebd5;
+      box-shadow: 0 0 8px rgba(116, 235, 213, 0.3);
+      outline: none;
+    }
+
+    button.submit-btn {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #fff;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button.submit-btn:hover {
+      background: linear-gradient(135deg, #6ed2d9, #9bb8e7);
+      transform: scale(1.02);
+    }
+
+    /* Reviews Container */
+    .reviews-container {
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transform: translateY(-4px);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .reviewer-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .reviewer-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .review-date {
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    .review-text {
+      font-size: 1em;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      main {
+        padding: 30px 15px;
+      }
+
+      h2 {
+        font-size: 2em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .logo-container {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .logo-container h1 {
+        font-size: 1.5em;
+        text-align: center;
+        width: 100%;
+      }
+
+      nav.menu {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      nav.menu a {
+        padding: 8px 12px;
+        font-size: 0.9em;
+      }
+
+      .review-form {
+        padding: 20px;
+        margin: 0 10px 40px;
+      }
+
+      .review-form h3 {
+        font-size: 1.5em;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        font-size: 0.95em;
+        padding: 10px 12px;
+      }
+
+      button.submit-btn {
+        font-size: 1em;
+        padding: 12px;
+      }
+
+      .reviews-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header with Logo and Menu -->
 <header class="header">
   <div class="logo-container">
     <img src="images/Logo.png" alt="Sakhile's Logo" />
@@ -237,11 +317,9 @@ button.submit-btn:hover {
   </nav>
 </header>
 
-<!-- Main Content -->
 <main>
   <h2>Share Your Experience!</h2>
-  
-  <!-- Review Submission Form -->
+
   <form class="review-form" id="reviewForm">
     <h3>Leave a Review</h3>
     <div class="form-group">
@@ -265,20 +343,14 @@ button.submit-btn:hover {
     </div>
     <button type="submit" class="submit-btn">Submit Review</button>
   </form>
-  
-  <!-- Display Reviews -->
-  <section class="reviews-container" id="reviewsContainer">
-    <!-- Sample Review Card -->
-    <!-- Future: dynamically add reviews here -->
-  </section>
+
+  <section class="reviews-container" id="reviewsContainer"></section>
 </main>
 
-<!-- JavaScript for handling reviews -->
 <script>
   const reviewForm = document.getElementById('reviewForm');
   const reviewsContainer = document.getElementById('reviewsContainer');
 
-  // Sample Reviews Array
   const reviews = [
     {
       name: "John D.",
@@ -296,7 +368,6 @@ button.submit-btn:hover {
     }
   ];
 
-  // Function to create review card
   function createReviewCard({ name, date, review, rating, avatar }) {
     const card = document.createElement('div');
     card.className = 'review-card';
@@ -330,59 +401,50 @@ button.submit-btn:hover {
     reviewText.className = 'review-text';
     reviewText.textContent = review;
 
-    // Append everything
-    card.appendChild(header);
-    card.appendChild(reviewText);
-
-    // Add star rating
     const stars = document.createElement('div');
     stars.style.marginTop = '10px';
     stars.innerHTML = generateStars(rating);
+
+    card.appendChild(header);
+    card.appendChild(reviewText);
     card.appendChild(stars);
 
     return card;
   }
 
-  // Function to generate star icons based on rating
   function generateStars(rating) {
     let starsHTML = '';
-    for (let i=1; i<=5; i++) {
-      if(i <= rating){
-        starsHTML += '★';
-      } else {
-        starsHTML += '☆';
-      }
+    for (let i = 1; i <= 5; i++) {
+      starsHTML += i <= rating ? '★' : '☆';
     }
     return `<span style="color:#f39c12; font-size:1.2em;">${starsHTML}</span>`;
   }
 
-  // Render initial reviews
   reviews.forEach(review => {
     reviewsContainer.appendChild(createReviewCard(review));
   });
 
-  // Handle form submission
-  reviewForm.addEventListener('submit', function(e){
+  reviewForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const reviewText = document.getElementById('review').value.trim();
     const rating = parseInt(document.getElementById('rating').value);
     const date = new Date().toISOString().split('T')[0];
 
-    if(name && reviewText && rating){
+    if (name && reviewText && rating) {
       const newReview = {
         name: name,
         date: date,
         review: reviewText,
         rating: rating,
-        avatar: `https://randomuser.me/api/portraits/lego/${Math.floor(Math.random()*10)}.jpg` // Random avatar
+        avatar: `https://randomuser.me/api/portraits/lego/${Math.floor(Math.random() * 10)}.jpg`
       };
 
-      reviews.push(newReview);
       reviewsContainer.prepend(createReviewCard(newReview));
       reviewForm.reset();
     }
   });
 </script>
+
 </body>
 </html>
