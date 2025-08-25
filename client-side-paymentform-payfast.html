@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pay with PayFast - Sakhile's iPhone Studio</title>
+<!-- Style same as previous pages for consistency -->
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+<style>
+  /* Same style as previous pages, omitted here for brevity, include your existing CSS */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background: url('images/background1.avif') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    color: #fff;
+    position: relative;
+  }
+  /* ... your full CSS from previous responses ... */
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+
+<!-- Header -->
+<header>
+  <!-- Same header as previous pages -->
+  <div class="header-left">
+    <img src="images/Logo.png" alt="Sakhile's Logo" />
+    <div class="header-title">Sakhile's iPhone Studio</div>
+  </div>
+</header>
+
+<!-- Payment Page Content -->
+<main>
+  <h1 style="text-align:center;">Complete Your Payment via PayFast</h1>
+  <section style="max-width:600px; margin:auto; padding:20px; background:rgba(0,0,0,0.6); border-radius:10px;">
+    <p style="text-align:center;">Click the button below to proceed to PayFast secure payment gateway.</p>
+    <!-- PayFast Payment Button -->
+    <form action="https://www.payfast.co.za/eng/process" method="POST" id="payfastForm">
+      <!-- Merchant details (replace these with your actual details) -->
+      <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID" />
+      <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY" />
+      
+      <!-- Transaction details -->
+      <input type="hidden" name="amount" id="pf_amount" value="" />
+      <input type="hidden" name="item_name" id="pf_item_name" value="" />
+      
+      <!-- Customer details -->
+      <input type="hidden" name="name_first" id="pf_name_first" value="" />
+      <input type="hidden" name="name_last" id="pf_name_last" value="" />
+      <input type="hidden" name="email_address" id="pf_email" value="" />
+      
+      <!-- Redirect URLs -->
+      <input type="hidden" name="return_url" value="YOUR_RETURN_URL" />
+      <input type="hidden" name="cancel_url" value="YOUR_CANCEL_URL" />
+      <input type="hidden" name="notify_url" value="YOUR_NOTIFY_URL" />
+
+      <!-- Submit button -->
+      <button type="submit" class="submit-btn" style="width:100%; margin-top:20px;">Pay with PayFast</button>
+    </form>
+  </section>
+</main>
+
+<!-- Scripts -->
+<script>
+  // Animate cursor
+  document.addEventListener('mousemove', e => {
+    document.getElementById('cursor').style.left = e.clientX + 'px';
+    document.getElementById('cursor').style.top = e.clientY + 'px';
+  });
+
+  // Populate form dynamically before submitting
+  document.getElementById('payfastForm').addEventListener('submit', function(e) {
+    // Grab the values from your form (or your page)
+    const amount = prompt("Enter amount to pay (ZAR):");
+    const itemName = "iPhone Repair / Purchase";
+    const nameFirst = prompt("First Name:");
+    const nameLast = prompt("Last Name:");
+    const email = prompt("Email Address:");
+
+    if (!amount || !nameFirst || !nameLast || !email) {
+      alert("Please fill out all details.");
+      e.preventDefault();
+      return false;
+    }
+
+    // Set form hidden fields
+    document.getElementById('pf_amount').value = amount;
+    document.getElementById('pf_item_name').value = itemName;
+    document.getElementById('pf_name_first').value = nameFirst;
+    document.getElementById('pf_name_last').value = nameLast;
+    document.getElementById('pf_email').value = email;
+
+    // Proceed to PayFast
+  });
+</script>
+</body>
+</html>
