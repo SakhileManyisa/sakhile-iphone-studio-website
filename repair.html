@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Repair Services - Sakhile's iPhone Studio</title>
+<title>Our iPhone Collection - Sakhile's</title>
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+
 <style>
 :root {
   --primary-color: #74ebd5;
@@ -24,11 +25,9 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  /* Fixed background image for whole page */
-  background: url('images/background3.avif') no-repeat center center fixed;
+  background: url('images/background1.avif') no-repeat center center fixed;
   background-size: cover;
   color: var(--text-color);
-  position: relative;
 }
 
 /* Custom cursor */
@@ -42,8 +41,13 @@ body {
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
+body.hover #cursor {
+  background: linear-gradient(135deg, #ff5722, #e64a19);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+  transform: scale(1.2);
+}
 
-/* Header styles */
+/* Header styles from second code snippet (menu & layout) */
 header {
   display: flex;
   flex-wrap: wrap;
@@ -56,14 +60,12 @@ header {
   top: 0;
   z-index: 1000;
 }
-
-/* Logo & title */
 .header-left {
   display: flex;
   align-items: center;
 }
 .header-left img {
-  height: 60px;
+  height: 50px;
   margin-right: 10px;
 }
 header h1 {
@@ -71,8 +73,7 @@ header h1 {
   color: #fff;
   letter-spacing: 2px;
 }
-
-/* Hamburger menu for mobile */
+/* Hamburger menu styles */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -109,81 +110,68 @@ nav.nav-menu a.active {
   transform: scale(1.05);
 }
 
-/* Section styles */
+/* Main section styles */
 section {
   padding: 50px 20px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 30px auto;
-  background: rgba(0,0,0,0.6);
+  background: #fff;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px var(--shadow-light);
 }
 section h2 {
   text-align: center;
-  margin-bottom: 25px;
-  font-size: 2em;
-  color: #fff;
-}
-ul {
-  list-style: inside;
-  font-size: 1.2em;
   margin-bottom: 30px;
+  font-size: 2em;
+  color: #222;
 }
-ul li {
+/* Product grid styling */
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.product {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+  box-shadow: 0 2px 5px var(--shadow-light);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-dark);
+}
+.product img {
+  width: 100%;
+  max-width: 160px;
+  height: 160px;
+  object-fit: contain;
   margin-bottom: 10px;
 }
-h3 {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 1.8em;
-  color: #fff;
-}
 p {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 30px;
-  color: #fff;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 0 20px;
-}
-input[type="text"],
-input[type="tel"],
-textarea {
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  transition: border 0.3s, box-shadow 0.3s;
-}
-input[type="text"]:focus,
-input[type="tel"]:focus,
-textarea:focus {
-  outline: none;
-  border: 2px solid var(--primary-color);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-button {
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--primary-color);
-  color: #fff;
-  font-size: 1.2em;
+  font-size: 0.95em;
   font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-button:hover {
-  background-color: #0056b3;
+  color: #444;
 }
 
-/* Responsive styles */
+/* Footer styles */
+footer {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive styles from second code snippet */
 @media(max-width: 768px){
   header {
     flex-direction: column;
@@ -208,40 +196,40 @@ button:hover {
     display: flex;
   }
 }
-
-/* Footer styles */
-footer {
-  background-color: #111;
-  color: #ccc;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9em;
-}
-footer a {
-  color: #fff;
-  text-decoration: underline;
+/* Optional: further small-screen adjustments */
+@media(max-width: 600px){
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  header h1 {
+    font-size: 1.5em;
+  }
+  nav.nav-menu a {
+    font-size: 0.9em;
+    padding: 8px 12px;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- Cursor -->
 <div id="cursor"></div>
 
-<!-- Header -->
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Apple Logo" />
     <h1>Sakhile's iPhone Studio</h1>
   </div>
-  <!-- Hamburger menu for mobile -->
+  <!-- Hamburger menu toggle -->
   <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
     <span></span>
     <span></span>
     <span></span>
   </div>
   <!-- Navigation -->
-  <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+  <nav class="nav-menu" id="nav-menu">
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
     <a href="repair.html">Repair</a>
@@ -250,45 +238,21 @@ footer a {
   </nav>
 </header>
 
-<!-- Repair Service Section -->
-<section>
-  <h2 style="text-align:center;">
-    <span style="color: white;">Our Repair Service</span>
+<section style="background: linear-gradient(135deg, #f9f9f9, #e0e0e0); padding:50px 20px; font-family: 'Lato', sans-serif;">
+  <h2 style="text-align:center; font-size:2.5em; margin-bottom:15px; color:#222; position:relative;">
+    Our Extensive iPhone Collection
+    <div style="height:4px; width:80px; background:var(--primary-color); margin:10px auto 0; border-radius:2px;"></div>
   </h2>
-  <ul>
-    <li><span style="color: white;">Screen & Glass Replacement</span></li>
-    <li><span style="color: white;">Battery & Power Issues</span></li>
-    <li><span style="color: white;">Water Damage Restoration</span></li>
-    <li><span style="color: white;">Charging Port & Connector Repair</span></li>
-    <li><span style="color: white;">Camera & Microphone Fix</span></li>
-    <li><span style="color: white;">Software Troubleshooting</span></li>
-    <li><span style="color: white;">Micro-soldering & Logic Board Repair</span></li>
-  </ul>
-  <h3 style="text-align:center;">
-    <span style="color: white;">Book a Repair</span>
-  </h3>
-  <p style="text-align:center;">
-    <span style="color: white;">Fill out the form below, and our technicians will contact you to confirm your appointment.</span>
-  </p>
-  <form>
-    <input type="text" placeholder="Your Name" required />
-    <input type="tel" placeholder="Contact Number" required />
-    <input type="text" placeholder="iPhone Model" required />
-    <textarea placeholder="Describe your issue" rows="4" required></textarea>
-    <button type="submit">Submit</button>
-  </form>
+  <div style="text-align:center; max-width:900px; margin:auto; margin-bottom:30px; font-size:1.1em; color:#555;">
+    Explore our wide range of high-quality iPhones, meticulously selected for quality and affordability. Whether you’re looking for the latest models or trusted classics, find your perfect device today!
+  </div>
+  <h2>Our Extensive iPhone Collection</h2>
+  <div class="product-row">
+    <!-- Product cards go here -->
+    <!-- ... (your product cards) ... -->
+  </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
-  <p>Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
-  <p>
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-  </p>
-</footer>
-
-<!-- Scripts -->
 <script>
   // Cursor movement
   const cursor = document.getElementById('cursor');
@@ -314,5 +278,13 @@ footer a {
     }
   });
 </script>
+
+<!-- Footer -->
+<footer>
+  <p><span style="color: grey;">© 2025 Sakhile's iPhone Studio. All rights reserved.</span></p>
+  <p><span style="color: grey;">Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</span></p>
+  <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+</footer>
+
 </body>
 </html>
