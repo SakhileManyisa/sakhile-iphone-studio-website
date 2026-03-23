@@ -1,290 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our iPhone Collection - Sakhile's</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - Sakhile Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --primary-color: #74ebd5;
-  --body-bg: #f0f0f0;
-  --text-color: #333;
-  --header-gradient: linear-gradient(135deg, #74ebd5, #ACB6E5);
-  --shadow-light: rgba(0,0,0,0.1);
-  --shadow-dark: rgba(0,0,0,0.2);
-  --font-family: 'Lato', sans-serif;
-  --border-radius: 10px;
-}
-
-/* Reset & base styles */
 body {
-  font-family: var(--font-family);
-  margin: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background: url('images/background1.avif') no-repeat center center fixed;
-  background-size: cover;
-  color: var(--text-color);
+  margin:0;
+  font-family:'Lato', sans-serif;
+  background:#f5f5f5;
+  transition:0.3s;
 }
 
-/* Custom cursor */
-#cursor {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-body.hover #cursor {
-  background: linear-gradient(135deg, #ff5722, #e64a19);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-  transform: scale(1.2);
+/* DARK MODE */
+body.dark {
+  background:#121212;
+  color:#fff;
 }
 
-/* Header styles from second code snippet (menu & layout) */
+/* HEADER */
 header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: var(--header-gradient);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.header-left {
-  display: flex;
-  align-items: center;
-}
-.header-left img {
-  height: 50px;
-  margin-right: 10px;
-}
-header h1 {
-  font-size: 1.8em;
-  color: #fff;
-  letter-spacing: 2px;
-}
-/* Hamburger menu styles */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  width: 30px;
-  height: 25px;
-  justify-content: space-between;
-}
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background-color: #fff;
-  border-radius: 2px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:linear-gradient(135deg,#74ebd5,#ACB6E5);
+  color:#fff;
 }
 
-/* Navigation styles */
-nav.nav-menu {
-  display: flex;
-  gap: 15px;
-}
-nav.nav-menu a {
-  text-decoration: none;
-  padding: 8px 40px;
-  border-radius: 20px;
-  background-color: rgba(255,255,255,0.3);
-  color: #fff;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.3s;
-}
-nav.nav-menu a:hover,
-nav.nav-menu a.active {
-  background-color: #fff;
-  color: #333;
-  transform: scale(1.05);
+nav a {
+  margin:0 10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
 }
 
-/* Main section styles */
-section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 30px auto;
-  background: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px var(--shadow-light);
+/* TITLE */
+.title {
+  text-align:center;
+  padding:20px;
 }
-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2em;
-  color: #222;
+
+/* GRID */
+.products {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  padding:20px;
 }
-/* Product grid styling */
-.product-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
+
+/* CARD */
 .product {
-  background: #fafafa;
-  border-radius: 8px;
-  padding: 10px;
-  width: 180px;
-  text-align: center;
-  box-shadow: 0 2px 5px var(--shadow-light);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background:#fff;
+  border-radius:15px;
+  padding:10px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  position:relative;
+  transition:0.3s;
 }
+
+body.dark .product {
+  background:#1e1e1e;
+}
+
 .product:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--shadow-dark);
+  transform:translateY(-5px);
 }
+
 .product img {
-  width: 100%;
-  max-width: 160px;
-  height: 160px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-p {
-  font-size: 0.95em;
-  font-weight: 600;
-  color: #444;
+  width:100%;
+  height:160px;
+  object-fit:contain;
 }
 
-/* Footer styles */
+/* TAG */
+.tag {
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#4caf50;
+  color:#fff;
+  padding:3px 6px;
+  font-size:0.7em;
+  border-radius:5px;
+}
+
+/* WISHLIST */
+.wishlist {
+  position:absolute;
+  top:10px;
+  right:10px;
+  cursor:pointer;
+}
+
+/* COLORS */
+.colors {
+  display:flex;
+  gap:5px;
+  justify-content:center;
+}
+
+.color {
+  width:12px;
+  height:12px;
+  border-radius:50%;
+}
+
+.black{background:#000;}
+.silver{background:#ccc;}
+.gold{background:gold;}
+.blue{background:#2196f3;}
+.red{background:#f44336;}
+
+/* STORAGE */
+.storage span {
+  font-size:0.7em;
+  margin:2px;
+  padding:3px 5px;
+  background:#eee;
+  border-radius:4px;
+}
+
+/* BUTTONS */
+.buttons {
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+button {
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.cart { background:#74ebd5; }
+.view { background:#ACB6E5; }
+
+/* DARK BUTTONS */
+body.dark .cart { background:#00c6ff; }
+body.dark .view { background:#555; }
+
+/* FOOTER */
 footer {
-  background: #000;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9em;
-}
-footer a {
-  color: #fff;
-  text-decoration: underline;
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:#fff;
 }
 
-/* Responsive styles from second code snippet */
-@media(max-width: 768px){
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  /* Show hamburger menu on small screens */
-  .menu-toggle {
-    display: flex;
-    margin-top: 10px;
-  }
-  /* Collapsible nav menu */
-  nav.nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: rgba(255,255,255,0.9);
-    padding: 10px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  nav.nav-menu.show {
-    display: flex;
-  }
-}
-/* Optional: further small-screen adjustments */
-@media(max-width: 600px){
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  header h1 {
-    font-size: 1.5em;
-  }
-  nav.nav-menu a {
-    font-size: 0.9em;
-    padding: 8px 12px;
-  }
+/* TOGGLE */
+.toggle {
+  cursor:pointer;
 }
 </style>
 </head>
+
 <body>
 
-<div id="cursor"></div>
-
 <header>
-  <div class="header-left">
-    <img src="images/Logo.png" alt="Apple Logo" />
-    <h1>Sakhile's iPhone Studio</h1>
-  </div>
-  <!-- Hamburger menu toggle -->
-  <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <!-- Navigation -->
-  <nav class="nav-menu" id="nav-menu">
+  <h2>Sakhile Store</h2>
+  <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
-    <a href="about.html" class="active">About</a>
-    <a href="reviews.html">Reviews</a>
+    <a href="payment.html">Pay</a>
   </nav>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
 </header>
 
-<section style="background: linear-gradient(135deg, #f9f9f9, #e0e0e0); padding:50px 20px; font-family: 'Lato', sans-serif;">
-  <h2 style="text-align:center; font-size:2.5em; margin-bottom:15px; color:#222; position:relative;">
-    Our Extensive iPhone Collection
-    <div style="height:4px; width:80px; background:var(--primary-color); margin:10px auto 0; border-radius:2px;"></div>
-  </h2>
-  <div style="text-align:center; max-width:900px; margin:auto; margin-bottom:30px; font-size:1.1em; color:#555;">
-    Explore our wide range of high-quality iPhones, meticulously selected for quality and affordability. Whether you’re looking for the latest models or trusted classics, find your perfect device today!
+<div class="title">
+  <h2>Our iPhone Collection</h2>
+  <p>Choose your perfect iPhone</p>
+</div>
+
+<div class="products">
+
+  <!-- PRODUCT -->
+  <div class="product">
+    <span class="tag">NEW</span>
+    <span class="wishlist" onclick="toggleHeart(this)">❤️</span>
+
+    <img src="images/15_pro-removebg-preview.png">
+
+    <h4>iPhone 15 Pro</h4>
+    <p>R17 000</p>
+
+    <div class="storage">
+      <span>128GB</span>
+      <span>256GB</span>
+      <span>512GB</span>
+    </div>
+
+    <div class="colors">
+      <div class="color black"></div>
+      <div class="color silver"></div>
+      <div class="color gold"></div>
+      <div class="color blue"></div>
+      <div class="color red"></div>
+    </div>
+
+    <div class="buttons">
+      <button class="cart" onclick="addToCart('iPhone 15 Pro',17000)">🛒</button>
+      <button class="view" onclick="view()">🔍</button>
+    </div>
   </div>
-  <h2>Our Extensive iPhone Collection</h2>
-  <div class="product-row">
-    <!-- Product cards go here -->
-    <!-- ... (your product cards) ... -->
+
+  <!-- PRODUCT -->
+  <div class="product">
+    <span class="tag">HOT</span>
+    <span class="wishlist" onclick="toggleHeart(this)">❤️</span>
+
+    <img src="images/14_pro-removebg-preview.png">
+
+    <h4>iPhone 14 Pro</h4>
+    <p>R14 500</p>
+
+    <div class="storage">
+      <span>128GB</span>
+      <span>256GB</span>
+    </div>
+
+    <div class="colors">
+      <div class="color black"></div>
+      <div class="color silver"></div>
+      <div class="color gold"></div>
+      <div class="color blue"></div>
+      <div class="color red"></div>
+    </div>
+
+    <div class="buttons">
+      <button class="cart" onclick="addToCart('iPhone 14 Pro',14500)">🛒</button>
+      <button class="view" onclick="view()">🔍</button>
+    </div>
   </div>
-</section>
+
+</div>
+
+<footer>
+  <p>© 2025 Sakhile Store</p>
+</footer>
 
 <script>
-  // Cursor movement
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
 
-  // Menu toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
+/* DARK MODE */
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
 
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-    menuToggle.setAttribute('aria-expanded', String(!expanded));
-  });
-  // Accessibility with Enter/Space
-  menuToggle.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      menuToggle.click();
-    }
-  });
+/* CART */
+function addToCart(name,price){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({name,price});
+  localStorage.setItem("cart",JSON.stringify(cart));
+  alert("Added to cart 🛒");
+}
+
+/* VIEW */
+function view(){
+  window.location.href="payment.html";
+}
+
+/* WISHLIST */
+function toggleHeart(el){
+  el.style.color = el.style.color === "red" ? "black" : "red";
+}
+
 </script>
-
-<!-- Footer -->
-<footer>
-  <p><span style="color: grey;">© 2025 Sakhile's iPhone Studio. All rights reserved.</span></p>
-  <p><span style="color: grey;">Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</span></p>
-  <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-</footer>
 
 </body>
 </html>
