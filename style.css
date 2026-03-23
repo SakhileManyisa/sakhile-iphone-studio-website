@@ -1,101 +1,206 @@
-:root {
-  --primary-color: #74ebd5;
-  --secondary-color: #ACB6E5;
-  --font-family: 'Lato', sans-serif;
-  --text-color: #333;
-  --body-bg: #f0f0f0;
-  --border-radius: 10px;
-  --shadow-light: rgba(0,0,0,0.1);
-  --shadow-dark: rgba(0,0,0,0.2);
-}
-
-/* Base Styles */
+/* ==========================
+   GLOBAL STYLES
+========================== */
 body {
-  margin:0;
-  font-family: var(--font-family);
-  background: var(--body-bg);
-  color: var(--text-color);
-  overflow-x:hidden;
-}
-
-/* Header */
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color:#fff;
-}
-header img {
-  height:50px;
-  margin-right:10px;
-}
-nav a {
-  margin:0 10px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:bold;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  background: url('../images/background1.avif') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
   transition: 0.3s;
 }
-nav a:hover, nav a.active {
-  transform: scale(1.05);
-  color:#333;
-  background:#fff;
-  padding:5px 10px;
-  border-radius:8px;
-}
 
-/* Hero Section */
-.hero {
-  text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color:#fff;
-}
-
-/* Products Grid */
-.products {
-  display:flex;
-  gap:15px;
-  padding:20px;
-  overflow-x:auto;
-}
-.product {
-  min-width:200px;
-  background:#fff;
-  border-radius: var(--border-radius);
-  padding:10px;
-  box-shadow:0 5px 15px var(--shadow-light);
-  text-align:center;
-}
-.product img {
-  width:100%;
-  height:150px;
-  object-fit:contain;
-}
-
-/* Footer */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#000;
-  color:#fff;
-}
-
-/* Dark Mode */
+/* DARK MODE */
 body.dark {
-  background:#121212;
-  color:#fff;
-}
-body.dark .product {
-  background:#1e1e1e;
+  background: #121212;
+  color: #fff;
 }
 
-/* Buttons */
-button {
-  cursor:pointer;
-  border:none;
-  border-radius:6px;
-  padding:6px 12px;
+/* CUSTOM CURSOR */
+#cursor {
+  position: fixed;
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ==========================
+   HEADER & NAV
+========================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: #fff;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-left img {
+  height: 50px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+  color: #333;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+/* DARK MODE NAV */
+body.dark nav a {
+  color: #fff;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+.hero h1 {
+  font-size: 2.5em;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.hero button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #fff;
+  color: #333;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================
+   PRODUCTS
+========================== */
+.products {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.product {
+  min-width: 200px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  color: #333;
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.product h4, .product p {
+  margin: 5px 0;
+}
+
+.product button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #74ebd5;
+  color: #333;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.product button:hover {
+  background: #ACB6E5;
+}
+
+/* ==========================
+   REVIEWS / SERVICES / PAYMENT
+========================== */
+.reviews-container, .services, .payment-form {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 10px;
+}
+
+.reviews-container h2, .services h2, .payment-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+}
+
+/* DARK MODE FOOTER */
+body.dark footer {
+  background: #121212;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+.submit-btn {
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  color: #fff;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  transform: scale(1.02);
 }
