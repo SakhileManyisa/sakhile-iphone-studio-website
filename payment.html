@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div id="cursor"></div>
+
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Logo">
@@ -22,51 +24,34 @@
     <a href="reviews.html">Reviews</a>
     <a href="payment.html" class="active">Pay</a>
   </nav>
-  <span onclick="toggleDark()">🌙</span>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
 </header>
 
-<main style="padding:40px; max-width:600px; margin:auto;">
-  <h2 style="text-align:center;">Complete Your Payment</h2>
+<section class="hero">
+  <h1>Pay with PayFast</h1>
+  <p>Securely complete your payment</p>
+</section>
 
-  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px;">
-    <p>Click the button below to proceed to PayFast secure payment gateway.</p>
-
-    <form action="https://www.payfast.co.za/eng/process" method="POST" id="payfastForm">
-      <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID" />
-      <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY" />
-      <input type="hidden" name="amount" id="pf_amount" value="" />
-      <input type="hidden" name="item_name" id="pf_item_name" value="" />
-      <input type="hidden" name="name_first" id="pf_name_first" value="" />
-      <input type="hidden" name="name_last" id="pf_name_last" value="" />
-      <input type="hidden" name="email_address" id="pf_email" value="" />
-      <input type="hidden" name="return_url" value="YOUR_RETURN_URL" />
-      <input type="hidden" name="cancel_url" value="YOUR_CANCEL_URL" />
-      <input type="hidden" name="notify_url" value="YOUR_NOTIFY_URL" />
-      <button type="submit" class="submit-btn" style="width:100%; margin-top:10px;">Pay with PayFast</button>
-    </form>
-  </section>
-</main>
+<section class="payment-form">
+  <form action="https://www.payfast.co.za/eng/process" method="POST" id="payfastForm">
+    <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
+    <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
+    <input type="hidden" name="amount" id="pf_amount">
+    <input type="hidden" name="item_name" id="pf_item_name">
+    <input type="hidden" name="name_first" id="pf_name_first">
+    <input type="hidden" name="name_last" id="pf_name_last">
+    <input type="hidden" name="email_address" id="pf_email">
+    <input type="hidden" name="return_url" value="YOUR_RETURN_URL">
+    <input type="hidden" name="cancel_url" value="YOUR_CANCEL_URL">
+    <input type="hidden" name="notify_url" value="YOUR_NOTIFY_URL">
+    <button type="submit" class="submit-btn">Pay with PayFast</button>
+  </form>
+</section>
 
 <footer>
   <p>© 2025 Sakhile Store</p>
 </footer>
 
 <script src="js/scripts.js"></script>
-<script>
-document.getElementById('payfastForm').addEventListener('submit', function(e){
-  const amount = prompt("Enter amount to pay (ZAR):");
-  const first = prompt("First Name:");
-  const last = prompt("Last Name:");
-  const email = prompt("Email Address:");
-
-  if(!amount||!first||!last||!email){ alert("All fields required."); e.preventDefault(); return false; }
-
-  document.getElementById('pf_amount').value = amount;
-  document.getElementById('pf_item_name').value = "iPhone Repair / Purchase";
-  document.getElementById('pf_name_first').value = first;
-  document.getElementById('pf_name_last').value = last;
-  document.getElementById('pf_email').value = email;
-});
-</script>
 </body>
 </html>
