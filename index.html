@@ -1,77 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sakhile's iPhone Studio - Home</title>
-<!-- Fonts and Styles -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-<!-- Your CSS styles (copy from your code) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakhile iPhone Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
 <style>
-  /* Include your entire CSS here, same as your initial code */
-  /* ... (styles from your first message) ... */
+body {
+  margin:0;
+  font-family:'Lato', sans-serif;
+  background:#f5f5f5;
+  transition:0.3s;
+}
+
+/* DARK MODE */
+body.dark {
+  background:#121212;
+  color:#fff;
+}
+
+/* HEADER */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:linear-gradient(135deg,#74ebd5,#ACB6E5);
+  color:#fff;
+}
+
+nav a {
+  margin:0 10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(135deg,#74ebd5,#ACB6E5);
+  color:#fff;
+}
+
+.hero h1 {
+  font-size:2.5em;
+}
+
+.hero button {
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#fff;
+  cursor:pointer;
+}
+
+/* PRODUCTS */
+.products {
+  display:flex;
+  gap:15px;
+  padding:20px;
+  overflow-x:auto;
+}
+
+.product {
+  min-width:200px;
+  background:#fff;
+  border-radius:12px;
+  padding:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+body.dark .product {
+  background:#1e1e1e;
+}
+
+.product img {
+  width:100%;
+  height:150px;
+  object-fit:contain;
+}
+
+.buttons {
+  display:flex;
+  justify-content:space-between;
+}
+
+button {
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:#fff;
+}
+
+/* DARK TOGGLE */
+.toggle {
+  cursor:pointer;
+}
 </style>
 </head>
-<body>
-<!-- Cursor -->
-<div id="cursor"></div>
 
-<!-- Header -->
+<body>
+
 <header>
-  <div class="logo-container">
-    <img src="images/Logo.png" alt="Apple Logo" />
-    <h1>Sakhile's iPhone Studio</h1>
-  </div>
-  <nav class="nav-menu">
-    <a href="index.html" class="active">Home</a>
+  <h2>Sakhile Store</h2>
+  <nav>
+    <a href="index.html">Home</a>
     <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
-    <a href="about.html">About</a>
-    <a href="reviews.html">Reviews</a>
+    <a href="payment.html">Pay</a>
   </nav>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
 </header>
 
-<!-- Hero & Content -->
+<!-- HERO -->
 <section class="hero">
-  <h1>Welcome to Sakhile's iPhone Studio</h1>
-  <p>Your trusted partner for premium iPhone sales, repairs, and accessories.</p>
+  <h1>Premium iPhones. Trusted Service.</h1>
+  <p>Buy, Repair & Upgrade your iPhone today</p>
+  <button onclick="goShop()">Shop Now</button>
 </section>
 
-<!-- Featured Products & About -->
-<!-- ... your content ... -->
+<!-- FEATURED PRODUCTS -->
+<h2 style="text-align:center;">Featured iPhones</h2>
 
-<!-- Footer -->
+<div class="products">
+
+  <div class="product">
+    <img src="images/15_pro-removebg-preview.png">
+    <h4>iPhone 15 Pro</h4>
+    <p>R17 000</p>
+    <div class="buttons">
+      <button onclick="addToCart('iPhone 15 Pro',17000)">🛒</button>
+      <button onclick="view()">🔍</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="images/14_pro-removebg-preview.png">
+    <h4>iPhone 14 Pro</h4>
+    <p>R14 500</p>
+    <div class="buttons">
+      <button onclick="addToCart('iPhone 14 Pro',14500)">🛒</button>
+      <button onclick="view()">🔍</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+<section style="padding:20px; text-align:center;">
+  <h2>Why Choose Us?</h2>
+  <p>✔ Affordable Prices<br>✔ Quality Devices<br>✔ Fast Repairs<br>✔ Trusted Service</p>
+</section>
+
+<!-- CONTACT -->
+<section style="text-align:center; padding:20px;">
+  <h2>Need Help?</h2>
+  <button onclick="whatsapp()">📲 Chat on WhatsApp</button>
+</section>
+
 <footer>
-  <p>© 2025 Sakhile's iPhone Studio. All rights reserved.</p>
-  <p>Contact: 065 737 7004 | sakhilemanyisa10@gmail.com</p>
-  <p>
-    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-  </p>
+  <p>© 2025 Sakhile Store</p>
 </footer>
 
-<!-- Scripts for cursor and menu -->
 <script>
-  // Cursor animation
-  document.addEventListener('mousemove', e => {
-    document.getElementById('cursor').style.left = e.clientX + 'px';
-    document.getElementById('cursor').style.top = e.clientY + 'px';
-  });
-  // Menu toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  menuToggle && menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-    menuToggle.setAttribute('aria-expanded', String(!expanded));
-  });
-  document.querySelectorAll('.menu-toggle').forEach(btn => {
-    btn.addEventListener('keyup', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
-      }
-    });
-  });
+
+/* DARK MODE */
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+/* NAVIGATION */
+function goShop(){
+  window.location.href="products.html";
+}
+
+/* CART (LOCAL STORAGE) */
+function addToCart(name,price){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({name,price});
+  localStorage.setItem("cart",JSON.stringify(cart));
+  alert("Added to cart 🛒");
+}
+
+/* VIEW */
+function view(){
+  window.location.href="products.html";
+}
+
+/* WHATSAPP */
+function whatsapp(){
+  window.open("https://wa.me/27657377004");
+}
+
 </script>
+
 </body>
 </html>
