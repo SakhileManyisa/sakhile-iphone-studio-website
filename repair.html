@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div id="cursor"></div>
+
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Logo">
@@ -22,38 +24,24 @@
     <a href="reviews.html">Reviews</a>
     <a href="payment.html">Pay</a>
   </nav>
-  <span onclick="toggleDark()">🌙</span>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
 </header>
 
-<main style="padding:40px; max-width:900px; margin:auto;">
-  <h2 style="text-align:center;">iPhone Repair Services</h2>
+<section class="hero">
+  <h1>iPhone Repair Services</h1>
+  <p>Fast, reliable, and affordable repairs</p>
+</section>
 
-  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px; margin-bottom:20px;">
-    <h3>Screen Repair</h3>
-    <p>We replace broken or cracked screens quickly with high-quality parts.</p>
-    <p><strong>Price:</strong> From R1,500</p>
-  </section>
-
-  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px; margin-bottom:20px;">
-    <h3>Battery Replacement</h3>
-    <p>Extend your iPhone battery life with our professional replacement service.</p>
-    <p><strong>Price:</strong> From R900</p>
-  </section>
-
-  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px;">
-    <h3>Other Repairs</h3>
-    <ul>
-      <li>Charging Port Replacement</li>
-      <li>Camera Repair</li>
-      <li>Speaker and Microphone Fix</li>
-    </ul>
-    <p><strong>Contact us for quotes</strong></p>
-  </section>
-
-  <div style="text-align:center; margin-top:20px;">
-    <button onclick="whatsapp()">📲 Chat on WhatsApp</button>
-  </div>
-</main>
+<section class="services">
+  <h2 class="section-title">Repair Options</h2>
+  <ul>
+    <li>Screen Replacement</li>
+    <li>Battery Replacement</li>
+    <li>Camera Repair</li>
+    <li>Software Fixes</li>
+    <li>Water Damage Repairs</li>
+  </ul>
+</section>
 
 <footer>
   <p>© 2025 Sakhile Store</p>
