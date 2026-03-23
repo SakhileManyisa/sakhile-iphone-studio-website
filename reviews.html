@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div id="cursor"></div>
+
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Logo">
@@ -22,53 +24,22 @@
     <a href="reviews.html" class="active">Reviews</a>
     <a href="payment.html">Pay</a>
   </nav>
-  <span onclick="toggleDark()">🌙</span>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
 </header>
 
-<main style="padding:40px; max-width:1000px; margin:auto;">
-  <h2 style="text-align:center;">Customer Reviews</h2>
-  <div id="reviewsContainer"></div>
-</main>
+<section class="hero">
+  <h1>Customer Reviews</h1>
+  <p>See what our customers have to say</p>
+</section>
+
+<section class="reviews-container">
+  <!-- Review cards will be dynamically added via JS -->
+</section>
 
 <footer>
   <p>© 2025 Sakhile Store</p>
 </footer>
 
 <script src="js/scripts.js"></script>
-<script>
-const reviews = [
-  { name:"Alice M.", date:"2025-01-15", review:"Excellent service! My iPhone was fixed quickly.", rating:5, avatar:"https://randomuser.me/api/portraits/women/10.jpg" },
-  { name:"John D.", date:"2025-02-20", review:"Great repair job, very professional.", rating:4, avatar:"https://randomuser.me/api/portraits/men/20.jpg" },
-  { name:"Lina S.", date:"2025-03-05", review:"I highly recommend Sakhile's for iPhone repairs.", rating:5, avatar:"https://randomuser.me/api/portraits/women/22.jpg" }
-];
-const container = document.getElementById('reviewsContainer');
-
-function generateStars(rating){
-  let stars='';
-  for(let i=1;i<=5;i++){ stars+=i<=rating?'★':'☆'; }
-  return `<span style="color:#f39c12; font-size:1.2em;">${stars}</span>`;
-}
-
-function createReviewCard({name,date,review,rating,avatar}){
-  const card=document.createElement('div');
-  card.style.background="#fff"; card.style.borderRadius="10px"; card.style.padding="20px"; card.style.marginBottom="20px";
-  card.style.boxShadow="0 4px 15px rgba(0,0,0,0.1)";
-
-  card.innerHTML=`
-    <div style="display:flex; align-items:center; margin-bottom:10px;">
-      <img src="${avatar}" alt="${name}" style="width:50px;height:50px;border-radius:50%;margin-right:10px;">
-      <div>
-        <strong>${name}</strong><br>
-        <small>${new Date(date).toLocaleDateString()}</small>
-      </div>
-    </div>
-    <p>${review}</p>
-    <div>${generateStars(rating)}</div>
-  `;
-  return card;
-}
-
-reviews.forEach(r=>container.appendChild(createReviewCard(r)));
-</script>
 </body>
 </html>
