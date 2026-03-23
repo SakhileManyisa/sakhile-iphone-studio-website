@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sakhile iPhone Store</title>
 
+<!-- Google Site Verification -->
+<meta name="google-site-verification" content="b4294e644105319c" />
+
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
 <style>
@@ -75,136 +78,4 @@ nav a {
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-body.dark .product {
-  background:#1e1e1e;
-}
-
-.product img {
-  width:100%;
-  height:150px;
-  object-fit:contain;
-}
-
-.buttons {
-  display:flex;
-  justify-content:space-between;
-}
-
-button {
-  border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#000;
-  color:#fff;
-}
-
-/* DARK TOGGLE */
-.toggle {
-  cursor:pointer;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h2>Sakhile Store</h2>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="payment.html">Pay</a>
-  </nav>
-  <span class="toggle" onclick="toggleDark()">🌙</span>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <h1>Premium iPhones. Trusted Service.</h1>
-  <p>Buy, Repair & Upgrade your iPhone today</p>
-  <button onclick="goShop()">Shop Now</button>
-</section>
-
-<!-- FEATURED PRODUCTS -->
-<h2 style="text-align:center;">Featured iPhones</h2>
-
-<div class="products">
-
-  <div class="product">
-    <img src="images/15_pro-removebg-preview.png">
-    <h4>iPhone 15 Pro</h4>
-    <p>R17 000</p>
-    <div class="buttons">
-      <button onclick="addToCart('iPhone 15 Pro',17000)">🛒</button>
-      <button onclick="view()">🔍</button>
-    </div>
-  </div>
-
-  <div class="product">
-    <img src="images/14_pro-removebg-preview.png">
-    <h4>iPhone 14 Pro</h4>
-    <p>R14 500</p>
-    <div class="buttons">
-      <button onclick="addToCart('iPhone 14 Pro',14500)">🛒</button>
-      <button onclick="view()">🔍</button>
-    </div>
-  </div>
-
-</div>
-
-<!-- ABOUT -->
-<section style="padding:20px; text-align:center;">
-  <h2>Why Choose Us?</h2>
-  <p>✔ Affordable Prices<br>✔ Quality Devices<br>✔ Fast Repairs<br>✔ Trusted Service</p>
-</section>
-
-<!-- CONTACT -->
-<section style="text-align:center; padding:20px;">
-  <h2>Need Help?</h2>
-  <button onclick="whatsapp()">📲 Chat on WhatsApp</button>
-</section>
-
-<footer>
-  <p>© 2025 Sakhile Store</p>
-</footer>
-
-<script>
-
-/* DARK MODE */
-function toggleDark(){
-  document.body.classList.toggle("dark");
-}
-
-/* NAVIGATION */
-function goShop(){
-  window.location.href="products.html";
-}
-
-/* CART (LOCAL STORAGE) */
-function addToCart(name,price){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push({name,price});
-  localStorage.setItem("cart",JSON.stringify(cart));
-  alert("Added to cart 🛒");
-}
-
-/* VIEW */
-function view(){
-  window.location.href="products.html";
-}
-
-/* WHATSAPP */
-function whatsapp(){
-  window.open("https://wa.me/27657377004");
-}
-
-</script>
-
-</body>
-</html>
+body.dark
