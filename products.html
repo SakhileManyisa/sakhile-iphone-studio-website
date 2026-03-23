@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<div id="cursor"></div>
+
 <header>
   <div class="header-left">
     <img src="images/Logo.png" alt="Logo">
@@ -22,10 +24,14 @@
     <a href="reviews.html">Reviews</a>
     <a href="payment.html">Pay</a>
   </nav>
-  <span onclick="toggleDark()">🌙</span>
+  <span class="toggle" onclick="toggleDark()">🌙</span>
 </header>
 
-<h2 style="text-align:center;">All Products</h2>
+<section class="hero">
+  <h1>Our iPhone Collection</h1>
+  <p>Choose your perfect iPhone today</p>
+</section>
+
 <div class="products">
   <div class="product">
     <img src="images/15_pro-removebg-preview.png" alt="iPhone 15 Pro">
@@ -39,11 +45,13 @@
     <p>R14 500</p>
     <button onclick="addToCart('iPhone 14 Pro',14500)">🛒 Add</button>
   </div>
+  <!-- Add more products here -->
 </div>
 
 <footer>
   <p>© 2025 Sakhile Store</p>
 </footer>
+
 <script src="js/scripts.js"></script>
 </body>
 </html>
