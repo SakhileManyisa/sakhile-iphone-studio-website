@@ -1,347 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Our iPhone Collection - Sakhile's</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sakhile iPhone Store PRO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --primary-color: #74ebd5;
-  --body-bg: #f0f0f0;
-  --text-color: #333;
-  --header-gradient: linear-gradient(135deg, #74ebd5, #ACB6E5);
-  --shadow-light: rgba(0,0,0,0.1);
-  --shadow-dark: rgba(0,0,0,0.2);
-  --font-family: 'Lato', sans-serif;
-  --border-radius: 10px;
-}
+body { font-family:Lato; margin:0; background:#f5f5f5; }
 
-/* Reset and body styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  background: url('images/background1.avif') no-repeat center center fixed;
-  background-size: cover;
-  min-height: 100vh;
-  overflow-x: hidden;
-  color: var(--text-color);
-}
-
-/* Custom cursor */
-#cursor {
-  position: fixed;
-  width: 15px;
-  height: 15px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-body.hover #cursor {
-  background: linear-gradient(135deg, #ff5722, #e64a19);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-  transform: scale(1.2);
-}
-
-/* Header styles */
+/* HEADER */
 header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: var(--header-gradient);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.header-left {
-  display: flex; align-items: center;
-}
-.header-left img {
-  height: 50px; margin-right: 10px;
-}
-header h1 {
-  font-size: 1.8em; color: #fff; letter-spacing: 2px;
-}
-.menu-toggle {
-  display: none; /* Hidden on large screens */
-  flex-direction: column; cursor: pointer; width: 30px; height: 25px; justify-content: space-between;
-}
-.menu-toggle span {
-  display: block; height: 3px; background-color: #fff; border-radius: 2px;
-}
-/* Navigation styles */
-nav.nav-menu {
-  display: flex; gap: 15px;
-}
-nav.nav-menu a {
-  padding: 8px 12px; border-radius: 5px; background-color: rgba(255,255,255,0.3);
-  color: #fff; font-weight: 600; transition: background-color 0.3s, transform 0.3s; font-size: 1em;
-}
-nav.nav-menu a:hover,
-nav.nav-menu a.active {
-  background-color: #fff; color: #333; transform: scale(1.05);
+  display:flex; justify-content:space-between;
+  padding:15px; background:#111; color:#fff;
 }
 
-/* Main section styles */
-section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 30px auto;
-  background: #fff;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 8px var(--shadow-light);
+/* BUTTONS */
+button { cursor:pointer; border:none; padding:6px 10px; border-radius:5px; }
+
+/* PRODUCT GRID */
+.products {
+  display:flex; flex-wrap:wrap; gap:15px; padding:15px;
 }
-section h2 {
-  text-align: center; margin-bottom: 30px; font-size: 2em; color: #222;
-}
-/* Product grid styling */
-.product-row {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
-}
+
 .product {
-  background: #fafafa;
-  border-radius: 8px;
-  padding: 10px;
-  width: 180px;
-  text-align: center;
-  box-shadow: 0 2px 5px var(--shadow-light);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.product:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--shadow-dark);
-}
-.product img {
-  width: 100%;
-  max-width: 160px;
-  height: 160px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-p {
-  font-size: 0.95em;
-  font-weight: 600;
-  color: #444;
+  width:200px; background:#fff; border-radius:10px;
+  padding:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Footer styles */
-footer {
-  background: #000;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9em;
-}
-footer a {
-  color: #fff;
-  text-decoration: underline;
-  margin: 0 8px;
+.product img { width:100%; height:150px; object-fit:contain; }
+
+/* CART PANEL */
+.cart {
+  position:fixed; right:0; top:0;
+  width:300px; height:100%;
+  background:#fff; box-shadow:-5px 0 10px rgba(0,0,0,0.3);
+  padding:15px; overflow:auto;
+  display:none;
 }
 
-/* Responsive styles */
-@media(max-width: 768px){
-  header {
-    flex-direction: column; align-items: flex-start;
-  }
-  /* Show toggle button */
-  .menu-toggle {
-    display: flex; margin-top: 10px;
-  }
-  /* Collapsible nav menu on small screens */
-  nav.nav-menu {
-    display: none; flex-direction: column; width: 100%; background: rgba(255,255,255,0.9); padding: 10px 0; border-radius: 8px;
-  }
-  nav.nav-menu.show {
-    display: flex;
-  }
-  /* Product width adjustment on small screens */
-  .product {
-    width: 140px;
-  }
-}
-@media(max-width: 600px){
-  header {
-    flex-direction: column; align-items: flex-start; gap: 10px;
-  }
-  header h1 {
-    font-size: 1.5em;
-  }
-  nav.nav-menu a {
-    font-size: 0.9em; padding: 8px 12px;
-  }
+.cart h3 { margin-top:0; }
+
+/* ADMIN PANEL */
+.admin {
+  padding:15px;
+  background:#eee;
 }
 
-   <!-- Navigation -->
-  <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
-    <a href="about.html" class="active">About</a>
-    <a href="reviews.html">Reviews</a>
-  </nav>
-</header>
+/* MODAL */
+.modal {
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.7);
+  display:none; justify-content:center; align-items:center;
+}
+
+.modal-content {
+  background:#fff; padding:20px; border-radius:10px;
+  width:300px;
+}
+
 </style>
 </head>
+
 <body>
 
-<div id="cursor"></div>
-
 <header>
-  <div class="header-left">
-    <img src="images/Logo.png" alt="Apple Logo" />
-    <h1>Sakhile's iPhone Studio</h1>
-  </div>
-  <!-- Hamburger menu toggle -->
-  <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
-    <span>
-
-  <!-- Navigation -->
-  <nav class="nav-menu" id="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
-    <a href="about.html" class="active">About</a>
-    <a href="reviews.html">Reviews</a>
-  </nav>
-    </span>
+  <h2>Sakhile Store</h2>
+  <div>
+    <button onclick="toggleCart()">🛒 Cart (<span id="count">0</span>)</button>
   </div>
 </header>
 
-<section style="background: linear-gradient(135deg, #f9f9f9, #e0e0e0); padding:50px 20px; font-family: 'Lato', sans-serif;">
-  <h2 style="text-align:center; font-size:2.5em; margin-bottom:15px; color:#222; position:relative;">
-    Our Extensive iPhone Collection
-    <div style="height:4px; width:80px; background:var(--primary-color); margin:10px auto 0; border-radius:2px;"></div>
-  </h2>
-  <div style="text-align:center; max-width:900px; margin:auto; margin-bottom:30px; font-size:1.1em; color:#555;">
-    Explore our wide range of high-quality iPhones, meticulously selected for quality and affordability. Whether you’re looking for the latest models or trusted classics, find your perfect device today!
-  </div>
-  
-  <div class="product-row">
-    <!-- Paste your product cards below: -->
-    <div class="product">
-      <img src="images/7_plus-removebg-preview.png" alt="iPhone 7 Plus" />
-      <p>iPhone 7 Plus — 128GB R3500</p>
-    </div>
-    <div class="product">
-      <img src="images/8_plus-removebg-preview.png" alt="iPhone 8 Plus" />
-      <p>iPhone 8 Plus — 64GB R4000</p>
-    </div>
-    <div class="product">
-      <img src="images/xr-removebg-preview.png" alt="iPhone XR" />
-      <p>iPhone XR — 64GB R4800</p>
-    </div>
-    <div class="product">
-      <img src="images/xs-removebg-preview.png" alt="iPhone XS" />
-      <p>iPhone XS — 64GB R4900</p>
-    </div>
-    <div class="product">
-      <img src="images/xs_max-removebg-preview.png" alt="iPhone XS Max" />
-      <p>iPhone XS Max — 64GB R5500</p>
-    </div>
-    <div class="product">
-      <img src="images/11-removebg-preview.png" alt="iPhone 11" />
-      <p>iPhone 11 — 64GB R5800</p>
-    </div>
-    <div class="product">
-      <img src="images/11_pro-removebg-preview.png" alt="iPhone 11 Pro" />
-      <p>iPhone 11 Pro — 64GB R7500</p>
-    </div>
-    <div class="product">
-      <img src="images/11_pro_max-removebg-preview.png" alt="iPhone 11 Pro Max" />
-      <p>iPhone 11 Pro Max — 64GB R8 500</p>
-    </div>
-    <div class="product">
-      <img src="images/12-removebg-preview.png" alt="iPhone 12" />
-      <p>iPhone 12 — 64GB R7500</p>
-    </div>
-    <div class="product">
-      <img src="images/12_pro-removebg-preview.png" alt="iPhone 12 Pro" />
-      <p>iPhone 12 Pro — 64GB R9500</p>
-    </div>
-    <div class="product">
-      <img src="images/12_pro_max-removebg-preview.png" alt="iPhone 12 Pro Max" />
-      <p>iPhone 12 Pro Max —128GB R11 500</p>
-    </div>
-    <div class="product">
-      <img src="images/13-removebg-preview.png" alt="iPhone 13" />
-      <p>iPhone 13 — 128GB R9500</p>
-    </div>
-    <div class="product">
-      <img src="images/13_pro-removebg-preview.png" alt="iPhone 13 Pro" />
-      <p>iPhone 13 Pro — 128GB R12 500</p>
-    </div>
-    <div class="product">
-      <img src="images/13_pro_max-removebg-preview.png" alt="iPhone 13 Pro Max" />
-      <p>iPhone 13 Pro Max — 128GB R14 000</p>
-    </div>
-    <div class="product">
-      <img src="images/14-removebg-preview.png" alt="iPhone 14" />
-      <p>iPhone 14 — 128GB R12 000</p>
-    </div>
-    <div class="product">
-      <img src="images/14_pro-removebg-preview.png" alt="iPhone 14 Pro" />
-      <p>iPhone 14 Pro — 128GB R14 500</p>
-    </div>
-    <div class="product">
-      <img src="images/14_pro_max-removebg-preview.png" alt="iPhone 14 Pro Max" />
-      <p>iPhone 14 Pro Max — 128GB R16 000</p>
-    </div>
-    <div class="product">
-      <img src="images/15-removebg-preview.png" alt="iPhone 15" />
-      <p>iPhone 15 — 128GB R14 000</p>
-    </div>
-    <div class="product">
-      <img src="images/15_pro-removebg-preview.png" alt="iPhone 15 Pro" />
-      <p>iPhone 15 Pro — 128GB R17 000</p>
-    </div>
-    <div class="product">
-      <img src="images/15_pro_max-removebg-preview.png" alt="iPhone 15 Pro Max" />
-      <p>iPhone 15 Pro Max — 256GB R20 000</p>
-    </div>
-    <div class="product">
-      <img src="images/16-removebg-preview.png" alt="iPhone 16" />
-      <p>iPhone 16 — 128GB R15 000</p>
-    </div>
-    <div class="product">
-      <img src="images/16_pro-removebg-preview.png" alt="iPhone 16 Pro" />
-      <p>iPhone 16 Pro — 256GB R19 000</p>
-    </div>
-    <div class="product">
-      <img src="images/16_pro_max-removebg-preview.png" alt="iPhone 16 Pro Max" />
-      <p>iPhone 16 Pro Max — 256GB R26 000</p>
-    </div>
-  </div>
-</section>
+<!-- PRODUCTS -->
+<div class="products" id="products"></div>
+
+<!-- CART -->
+<div class="cart" id="cart">
+  <h3>Your Cart</h3>
+  <div id="cartItems"></div>
+  <h4>Total: R<span id="total">0</span></h4>
+
+  <button onclick="checkoutWhatsApp()">Checkout WhatsApp</button>
+  <button onclick="payNow()">Pay Now</button>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin">
+  <h3>Admin Panel</h3>
+  <input id="name" placeholder="Product Name">
+  <input id="price" placeholder="Price">
+  <input id="img" placeholder="Image URL">
+  <button onclick="addProduct()">Add Product</button>
+</div>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+let products = [
+  {name:"iPhone 15 Pro", price:17000, img:"images/15_pro-removebg-preview.png"},
+  {name:"iPhone 14 Pro", price:14500, img:"images/14_pro-removebg-preview.png"}
+];
+
+let cart = [];
+
+/* DISPLAY PRODUCTS */
+function renderProducts(){
+  let container = document.getElementById("products");
+  container.innerHTML = "";
+
+  products.forEach((p,i)=>{
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.img}">
+        <h4>${p.name}</h4>
+        <p>R${p.price}</p>
+        <button onclick="addToCart(${i})">🛒</button>
+        <button onclick="viewProduct(${i})">🔍</button>
+      </div>
+    `;
   });
+}
+
+/* CART SYSTEM */
+function addToCart(i){
+  cart.push(products[i]);
+  updateCart();
+}
+
+function updateCart(){
+  let items = document.getElementById("cartItems");
+  let total = 0;
+
+  items.innerHTML = "";
+  cart.forEach(p=>{
+    total += p.price;
+    items.innerHTML += `<p>${p.name} - R${p.price}</p>`;
+  });
+
+  document.getElementById("total").innerText = total;
+  document.getElementById("count").innerText = cart.length;
+}
+
+function toggleCart(){
+  let cartEl = document.getElementById("cart");
+  cartEl.style.display = cartEl.style.display === "block" ? "none" : "block";
+}
+
+/* WHATSAPP CHECKOUT */
+function checkoutWhatsApp(){
+  let message = "Order:%0A";
+  cart.forEach(p=>{
+    message += `${p.name} - R${p.price}%0A`;
+  });
+
+  message += `Total: R${document.getElementById("total").innerText}`;
+
+  window.open(`https://wa.me/27657377004?text=${message}`);
+}
+
+/* PAYMENT (DEMO) */
+function payNow(){
+  alert("Connect PayFast or Stripe here");
+}
+
+/* PRODUCT PAGE (MODAL) */
+function viewProduct(i){
+  let p = products[i];
+
+  document.getElementById("modal").style.display="flex";
+  document.getElementById("modalContent").innerHTML = `
+    <h2>${p.name}</h2>
+    <img src="${p.img}" style="width:100%">
+    <p>Price: R${p.price}</p>
+    <button onclick="addToCart(${i})">Add to Cart</button>
+    <button onclick="closeModal()">Close</button>
+  `;
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+/* ADMIN PANEL */
+function addProduct(){
+  let name = document.getElementById("name").value;
+  let price = document.getElementById("price").value;
+  let img = document.getElementById("img").value;
+
+  products.push({name, price:parseInt(price), img});
+  renderProducts();
+}
+
+/* INIT */
+renderProducts();
 </script>
 
-<!-- Footer -->
-<footer>
-  <p><span style="color: grey;">© 2025 Sakhile's iPhone Studio. All rights reserved.</span></p>
-  <p><span style="color: grey;">Contact us: 065 737 7004 | sakhilemanyisa10@gmail.com</span></p>
-  <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
-</footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
