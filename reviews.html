@@ -1,459 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reviews - Sakhile's iPhone Studio</title>
 
-<!-- Google Fonts for typography -->
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Root variables for easy theming and consistency */
-  :root {
-    --primary-color: #74ebd5;
-    --body-bg: #f0f0f0;
-    --text-color: #333;
-    --header-gradient: linear-gradient(135deg, #74ebd5, #ACB6E5);
-    --shadow-light: rgba(0,0,0,0.1);
-    --shadow-dark: rgba(0,0,0,0.2);
-    --font-family: 'Lato', sans-serif;
-    --border-radius: 10px;
-  }
+:root{
+  --primary:#74ebd5;
+  --gradient:linear-gradient(135deg,#74ebd5,#ACB6E5);
+  --dark:#0f172a;
+}
 
-  /* Reset and base styles for the body */
-  body {
-    font-family: var(--font-family);
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: url('images/background3.avif') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text-color);
-    overflow-x: hidden;
-    position: relative;
-  }
+body{
+  margin:0;
+  font-family:'Lato',sans-serif;
+  background:url('images/background1.avif') center/cover fixed;
+  color:#333;
+  transition:0.3s;
+}
+body.dark{
+  background:#0f172a;
+  color:#fff;
+}
 
-  /* Custom cursor styling for modern UI */
-  #cursor {
-    position: fixed;
-    width: 15px;
-    height: 15px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-  }
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:var(--gradient);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+header h1{color:#fff;}
+nav a{
+  color:#fff;
+  margin:0 8px;
+  padding:8px 15px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.3);
+  text-decoration:none;
+}
+nav a.active,nav a:hover{
+  background:#fff;
+  color:#333;
+}
 
-  /* Header styles: sticky and responsive */
-  header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: var(--header-gradient);
-    box-shadow: 0 4px 8px var(--shadow-dark);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+/* TOP BAR */
+.top-bar{
+  display:flex;
+  gap:10px;
+}
+.icon-btn{
+  background:#fff;
+  border:none;
+  padding:8px 12px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:16px;
+}
 
-  /* Logo and title container */
-  .header-left {
-    display: flex;
-    align-items: center;
-  }
+/* SECTION */
+section{
+  max-width:1200px;
+  margin:30px auto;
+  padding:30px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.85);
+}
+body.dark section{
+  background:rgba(0,0,0,0.6);
+}
 
-  .header-left img {
-    height: 60px;
-    margin-right: 10px;
-  }
+/* TITLE */
+h2{
+  text-align:center;
+  font-size:2.2em;
+  margin-bottom:20px;
+}
 
-  header h1 {
-    font-size: 1.8em;
-    color: #fff;
-    letter-spacing: 2px;
-  }
+/* REVIEW GRID */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
 
-  /* Hamburger menu for mobile responsiveness */
-  .menu-toggle {
-    display: none; /* Hidden on large screens */
-    flex-direction: column;
-    cursor: pointer;
-    width: 30px;
-    height: 25px;
-    justify-content: space-between;
-  }
+/* CARD */
+.card{
+  padding:20px;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+body.dark .card{
+  background:#1e293b;
+}
+.card:hover{
+  transform:translateY(-5px);
+}
 
-  .menu-toggle span {
-    display: block;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
-  }
+/* USER */
+.user{
+  display:flex;
+  align-items:center;
+  margin-bottom:10px;
+}
+.user img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  margin-right:10px;
+}
 
-  /* Navigation menu styles */
-  nav.nav-menu {
-    display: flex;
-    gap: 15px;
-  }
+/* STARS */
+.stars{
+  color:#fbbf24;
+  margin-top:5px;
+}
 
-  nav.nav-menu a {
-    text-decoration: none;
-    padding: 8px 20px;
-    border-radius: 25px;
-    background: rgba(255,255,255,0.3);
-    color: #fff;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
+/* ADD REVIEW */
+.form{
+  margin-top:40px;
+}
+.form input,.form textarea{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:none;
+}
+.form button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  background:var(--gradient);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-  nav.nav-menu a:hover,
-  nav.nav-menu a.active {
-    background: #fff;
-    color: #333;
-    transform: scale(1.05);
-  }
-
-  /* Main content styling */
-  main {
-    flex: 1;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* Section heading style */
-  h2 {
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    text-align: center;
-    color: #222;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-  }
-
-  /* Review form styling */
-  .review-form {
-    background: #fff;
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    max-width: 600px;
-    margin: 0 auto 50px;
-    transition: all 0.3s;
-  }
-
-  .review-form:hover {
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-  }
-
-  .review-form h3 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    text-align: center;
-    color: #333;
-  }
-
-  /* Form group styles for inputs and labels */
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-
-  .form-group label {
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #555;
-  }
-
-  /* Input and textarea styles */
-  input[type="text"],
-  input[type="tel"],
-  textarea {
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius);
-    font-family: var(--font-family);
-    font-size: 1em;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(116, 235, 213, 0.3);
-  }
-
-  /* Submit button styling */
-  .submit-btn {
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-    color: #fff;
-    padding: 14px 30px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    width: 100%;
-  }
-
-  .submit-btn:hover {
-    background: linear-gradient(135deg, #6ed2d9, #9bb8e7);
-    transform: scale(1.02);
-  }
-
-  /* Container for review cards grid layout */
-  .reviews-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  /* Individual review card styling */
-  .review-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s;
-  }
-
-  .review-card:hover {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transform: translateY(-4px);
-  }
-
-  /* Review header containing avatar and reviewer info */
-  .review-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-
-  /* Reviewer avatar styles */
-  .reviewer-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  }
-
-  /* Reviewer info styles: name and date */
-  .reviewer-info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .reviewer-name {
-    font-weight: 700;
-    font-size: 1.1em;
-    color: #333;
-  }
-
-  .review-date {
-    font-size: 0.9em;
-    color: #777;
-  }
-
-  /* Review text content */
-  .review-text {
-    font-size: 1em;
-    color: #555;
-    line-height: 1.5;
-  }
-
-  /* Responsive adjustments for smaller screens */
-  @media(max-width:768px){
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    /* Show hamburger menu on small screens */
-    .menu-toggle {
-      display: flex;
-      margin-top: 10px;
-    }
-    /* Collapsible navigation menu styles */
-    nav.nav-menu {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background: rgba(255,255,255,0.9);
-      padding: 10px 0;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px var(--shadow-dark);
-    }
-    /* Show menu when toggled */
-    nav.nav-menu.show {
-      display: flex;
-    }
-  }
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:#aaa;
+}
 </style>
 </head>
+
 <body>
 
-<!-- Custom cursor element -->
-<div id="cursor"></div>
+<!-- HEADER -->
+<header>
+  <h1>Sakhile's iPhone Studio</h1>
 
-<!-- Header section with logo, title, and navigation -->
-<header class="header">
-  <div class="logo-container" style="display:flex; align-items:center;">
-    <img src="images/Logo.png" alt="Sakhile's Logo" />
-    <h1>Sakhile's iPhone Studio</h1>
-  </div>
-  <!-- Hamburger menu toggle for mobile -->
-  <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" role="button" tabindex="0">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <!-- Navigation links -->
-  <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+  <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
-    <a href="repair.html">Repair</a>
     <a href="about.html">About</a>
     <a href="reviews.html" class="active">Reviews</a>
   </nav>
+
+  <div class="top-bar">
+    <button class="icon-btn" onclick="toggleDark()">🌙</button>
+    <button class="icon-btn">🛒 <span id="cartCount">0</span></button>
+  </div>
 </header>
 
-<!-- Main content area for reviews -->
-<main>
-  <h2 style="text-align:center; color:white;">Customer Reviews</h2>
-  <!-- Container where review cards will be dynamically inserted -->
-  <div class="reviews-container" id="reviewsContainer"></div>
-</main>
+<!-- MAIN -->
+<section>
+  <h2>⭐ Customer Reviews</h2>
 
-<!-- Scripts for interactivity: menu toggle, cursor movement, and reviews display -->
+  <div class="reviews" id="reviews"></div>
+
+  <!-- ADD REVIEW -->
+  <div class="form">
+    <h3>Add Your Review</h3>
+    <input type="text" id="name" placeholder="Your name">
+    <textarea id="text" placeholder="Write your review..."></textarea>
+    <button onclick="addReview()">Submit Review</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Sakhile's iPhone Studio</p>
+</footer>
+
 <script>
-  // Move custom cursor with mouse
-  const cursor = document.getElementById('cursor');
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+/* DARK MODE */
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+/* SAMPLE REVIEWS */
+let reviews=[
+  {name:"Sakhile",text:"Best iPhones in SA 🔥",rating:5,img:"https://i.pravatar.cc/100?img=1"},
+  {name:"Thabo",text:"Fast delivery and legit phones",rating:4,img:"https://i.pravatar.cc/100?img=2"},
+  {name:"Lerato",text:"Amazing service ❤️",rating:5,img:"https://i.pravatar.cc/100?img=3"}
+];
+
+/* RENDER */
+function render(){
+  let container=document.getElementById("reviews");
+  container.innerHTML="";
+  reviews.forEach(r=>{
+    container.innerHTML+=`
+      <div class="card">
+        <div class="user">
+          <img src="${r.img}">
+          <strong>${r.name}</strong>
+        </div>
+        <p>${r.text}</p>
+        <div class="stars">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</div>
+      </div>
+    `;
   });
+}
+render();
 
-  // Toggle navigation menu on mobile
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
+/* ADD REVIEW */
+function addReview(){
+  let name=document.getElementById("name").value;
+  let text=document.getElementById("text").value;
 
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-    menuToggle.setAttribute('aria-expanded', String(!expanded));
-  });
-  // Accessibility: toggle menu with Enter or Space keys
-  menuToggle.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      menuToggle.click();
-    }
-  });
-
-  // Sample review data - replace with your actual data source as needed
-  const reviews = [
-    {
-      name: "Alice M.",
-      date: "2025-01-15",
-      review: "Excellent service! My iPhone was fixed quickly and looks new.",
-      rating: 5,
-      avatar: "https://randomuser.me/api/portraits/women/10.jpg"
-    },
-    {
-      name: "John D.",
-      date: "2025-02-20",
-      review: "Great repair job, very professional and friendly staff.",
-      rating: 4,
-      avatar: "https://randomuser.me/api/portraits/men/20.jpg"
-    },
-    {
-      name: "Lina S.",
-      date: "2025-03-05",
-      review: "I highly recommend Sakhile's for all iPhone repairs.",
-      rating: 5,
-      avatar: "https://randomuser.me/api/portraits/women/22.jpg"
-    }
-  ];
-
-  const container = document.getElementById('reviewsContainer');
-
-  // Function to generate star rating HTML (★ and ☆)
-  function generateStars(rating) {
-    let starsHTML = '';
-    for (let i=1; i<=5; i++) {
-      starsHTML += i <= rating ? '★' : '☆';
-    }
-    return `<span style="color:#f39c12; font-size:1.2em;">${starsHTML}</span>`;
+  if(!name||!text){
+    alert("Fill all fields");
+    return;
   }
 
-  // Function to create a review card element
-  function createReviewCard({ name, date, review, rating, avatar }) {
-    const card = document.createElement('div');
-    card.className = 'review-card';
-
-    // Header with avatar and reviewer info
-    const header = document.createElement('div');
-    header.className = 'review-header';
-
-    const avatarImg = document.createElement('img');
-    avatarImg.className = 'reviewer-avatar';
-    avatarImg.src = avatar;
-    avatarImg.alt = `${name}'s avatar`;
-
-    const infoDiv = document.createElement('div');
-    infoDiv.className = 'reviewer-info';
-
-    const reviewerName = document.createElement('div');
-    reviewerName.className = 'reviewer-name';
-    reviewerName.textContent = name;
-
-    const reviewDate = document.createElement('div');
-    reviewDate.className = 'review-date';
-    reviewDate.textContent = new Date(date).toLocaleDateString();
-
-    infoDiv.appendChild(reviewerName);
-    infoDiv.appendChild(reviewDate);
-    header.appendChild(avatarImg);
-    header.appendChild(infoDiv);
-
-    // Review text
-    const reviewText = document.createElement('div');
-    reviewText.className = 'review-text';
-    reviewText.textContent = review;
-
-    // Star rating
-    const starsDiv = document.createElement('div');
-    starsDiv.innerHTML = generateStars(rating);
-    starsDiv.style.marginTop = '10px';
-
-    // Assemble card
-    card.appendChild(header);
-    card.appendChild(reviewText);
-    card.appendChild(starsDiv);
-
-    return card;
-  }
-
-  // Render reviews dynamically
-  reviews.forEach(r => {
-    container.appendChild(createReviewCard(r));
+  reviews.unshift({
+    name,
+    text,
+    rating:5,
+    img:"https://i.pravatar.cc/100"
   });
 
-  // Future enhancement: Add review submission form and handling here
+  render();
+
+  document.getElementById("name").value="";
+  document.getElementById("text").value="";
+}
+
+/* CART COUNT (sync with products page) */
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+document.getElementById("cartCount").innerText=cart.length;
 </script>
+
 </body>
 </html>
