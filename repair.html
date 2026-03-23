@@ -3,273 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products - Sakhile Store</title>
-
+<title>Repair - Sakhile iPhone Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin:0;
-  font-family:'Lato', sans-serif;
-  background:#f5f5f5;
-  transition:0.3s;
-}
-
-/* DARK MODE */
-body.dark {
-  background:#121212;
-  color:#fff;
-}
-
-/* HEADER */
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  background:linear-gradient(135deg,#74ebd5,#ACB6E5);
-  color:#fff;
-}
-
-nav a {
-  margin:0 10px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:bold;
-}
-
-/* TITLE */
-.title {
-  text-align:center;
-  padding:20px;
-}
-
-/* GRID */
-.products {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  padding:20px;
-}
-
-/* CARD */
-.product {
-  background:#fff;
-  border-radius:15px;
-  padding:10px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
-  position:relative;
-  transition:0.3s;
-}
-
-body.dark .product {
-  background:#1e1e1e;
-}
-
-.product:hover {
-  transform:translateY(-5px);
-}
-
-.product img {
-  width:100%;
-  height:160px;
-  object-fit:contain;
-}
-
-/* TAG */
-.tag {
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:#4caf50;
-  color:#fff;
-  padding:3px 6px;
-  font-size:0.7em;
-  border-radius:5px;
-}
-
-/* WISHLIST */
-.wishlist {
-  position:absolute;
-  top:10px;
-  right:10px;
-  cursor:pointer;
-}
-
-/* COLORS */
-.colors {
-  display:flex;
-  gap:5px;
-  justify-content:center;
-}
-
-.color {
-  width:12px;
-  height:12px;
-  border-radius:50%;
-}
-
-.black{background:#000;}
-.silver{background:#ccc;}
-.gold{background:gold;}
-.blue{background:#2196f3;}
-.red{background:#f44336;}
-
-/* STORAGE */
-.storage span {
-  font-size:0.7em;
-  margin:2px;
-  padding:3px 5px;
-  background:#eee;
-  border-radius:4px;
-}
-
-/* BUTTONS */
-.buttons {
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
-}
-
-button {
-  border:none;
-  padding:6px 10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-.cart { background:#74ebd5; }
-.view { background:#ACB6E5; }
-
-/* DARK BUTTONS */
-body.dark .cart { background:#00c6ff; }
-body.dark .view { background:#555; }
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#000;
-  color:#fff;
-}
-
-/* TOGGLE */
-.toggle {
-  cursor:pointer;
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header>
-  <h2>Sakhile Store</h2>
+  <div class="header-left">
+    <img src="images/Logo.png" alt="Logo">
+    <h2>Sakhile Store</h2>
+  </div>
   <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
+    <a href="repair.html" class="active">Repair</a>
+    <a href="about.html">About</a>
+    <a href="reviews.html">Reviews</a>
     <a href="payment.html">Pay</a>
   </nav>
-  <span class="toggle" onclick="toggleDark()">🌙</span>
+  <span onclick="toggleDark()">🌙</span>
 </header>
 
-<div class="title">
-  <h2>Our iPhone Collection</h2>
-  <p>Choose your perfect iPhone</p>
-</div>
+<main style="padding:40px; max-width:900px; margin:auto;">
+  <h2 style="text-align:center;">iPhone Repair Services</h2>
 
-<div class="products">
+  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px; margin-bottom:20px;">
+    <h3>Screen Repair</h3>
+    <p>We replace broken or cracked screens quickly with high-quality parts.</p>
+    <p><strong>Price:</strong> From R1,500</p>
+  </section>
 
-  <!-- PRODUCT -->
-  <div class="product">
-    <span class="tag">NEW</span>
-    <span class="wishlist" onclick="toggleHeart(this)">❤️</span>
+  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px; margin-bottom:20px;">
+    <h3>Battery Replacement</h3>
+    <p>Extend your iPhone battery life with our professional replacement service.</p>
+    <p><strong>Price:</strong> From R900</p>
+  </section>
 
-    <img src="images/15_pro-removebg-preview.png">
+  <section style="background:rgba(255,255,255,0.9); padding:20px; border-radius:10px;">
+    <h3>Other Repairs</h3>
+    <ul>
+      <li>Charging Port Replacement</li>
+      <li>Camera Repair</li>
+      <li>Speaker and Microphone Fix</li>
+    </ul>
+    <p><strong>Contact us for quotes</strong></p>
+  </section>
 
-    <h4>iPhone 15 Pro</h4>
-    <p>R17 000</p>
-
-    <div class="storage">
-      <span>128GB</span>
-      <span>256GB</span>
-      <span>512GB</span>
-    </div>
-
-    <div class="colors">
-      <div class="color black"></div>
-      <div class="color silver"></div>
-      <div class="color gold"></div>
-      <div class="color blue"></div>
-      <div class="color red"></div>
-    </div>
-
-    <div class="buttons">
-      <button class="cart" onclick="addToCart('iPhone 15 Pro',17000)">🛒</button>
-      <button class="view" onclick="view()">🔍</button>
-    </div>
+  <div style="text-align:center; margin-top:20px;">
+    <button onclick="whatsapp()">📲 Chat on WhatsApp</button>
   </div>
-
-  <!-- PRODUCT -->
-  <div class="product">
-    <span class="tag">HOT</span>
-    <span class="wishlist" onclick="toggleHeart(this)">❤️</span>
-
-    <img src="images/14_pro-removebg-preview.png">
-
-    <h4>iPhone 14 Pro</h4>
-    <p>R14 500</p>
-
-    <div class="storage">
-      <span>128GB</span>
-      <span>256GB</span>
-    </div>
-
-    <div class="colors">
-      <div class="color black"></div>
-      <div class="color silver"></div>
-      <div class="color gold"></div>
-      <div class="color blue"></div>
-      <div class="color red"></div>
-    </div>
-
-    <div class="buttons">
-      <button class="cart" onclick="addToCart('iPhone 14 Pro',14500)">🛒</button>
-      <button class="view" onclick="view()">🔍</button>
-    </div>
-  </div>
-
-</div>
+</main>
 
 <footer>
   <p>© 2025 Sakhile Store</p>
 </footer>
 
-<script>
-
-/* DARK MODE */
-function toggleDark(){
-  document.body.classList.toggle("dark");
-}
-
-/* CART */
-function addToCart(name,price){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push({name,price});
-  localStorage.setItem("cart",JSON.stringify(cart));
-  alert("Added to cart 🛒");
-}
-
-/* VIEW */
-function view(){
-  window.location.href="payment.html";
-}
-
-/* WISHLIST */
-function toggleHeart(el){
-  el.style.color = el.style.color === "red" ? "black" : "red";
-}
-
-</script>
-
+<script src="js/scripts.js"></script>
 </body>
 </html>
